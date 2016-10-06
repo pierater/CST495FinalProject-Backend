@@ -19,5 +19,8 @@ class dbUtil():
         run query, make empty json and return as json file with collumn->value
         tableName-> should be included in the json
         '''
+
+        #this next line creates an empty json string from a python dict {}
         payload = json.dumps({})
         return payload
+
