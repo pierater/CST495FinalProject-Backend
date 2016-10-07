@@ -21,7 +21,9 @@ CREATE TABLE IF NOT EXISTS router.users(
 DROP TABLE IF EXISTS router.routes ;
 CREATE TABLE IF NOT EXISTS router.routes ( 
 	idroutes INT NOT NULL AUTO_INCREMENT, 
-	route VARCHAR(1000) NOT NULL, 
+	route VARCHAR(1000) NOT NULL,
+	startPointLat VARCHAR(10) NOT NULL,
+	startPointLon VARCHAR(10) NOT NULL,
 	userid VARCHAR(45) NOT NULL, 
 	PRIMARY KEY (idroutes), 
 	UNIQUE INDEX idroutes_UNIQUE (idroutes ASC)) ENGINE = InnoDB;
