@@ -4,7 +4,7 @@
 #Note: Should load db beforehand.
 
 from mysql.connector import MySQLConnection, Error
-from .python_mysql_dbconfig import read_db_config
+from python_mysql_dbconfig import read_db_config
 
 # Inserting data to Users Table
 # PARAM1: username value

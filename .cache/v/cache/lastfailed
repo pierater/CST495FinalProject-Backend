@@ -1,3 +1,3 @@
 {
-  "src/test/checkLogin_test.py::test_checkLogin": true
+  "router/src/test/flaskRunning_test.py": true
 }

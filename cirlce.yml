@@ -1,6 +1,0 @@
-machine:
-    python:
-        version: python3.5
-test:
-    override:
-        - ./py.test

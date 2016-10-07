@@ -1,8 +1,7 @@
 #!/usr/bin/env python3.5
 import json
 from flask import Blueprint, request
-from ..dbUtil import dbconnect
-
+import dbconnect
 '''
 Description: Rest endpoint for checking login
 Author: Martin Almaraz
