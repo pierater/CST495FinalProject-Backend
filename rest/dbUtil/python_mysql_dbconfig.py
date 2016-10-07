@@ -1,14 +1,15 @@
-from ConfigParser import ConfigParser
+#!/usr/bin/env python3.5
+import configparser
  
  
-def read_db_config(filename='config.ini', section='mysql'):
+def read_db_config(filename='./rest/dbUtil/config.ini', section='mysql'):
     """ Read database configuration file and return a dictionary object
     :param filename: name of the configuration file
     :param section: section of database configuration
     :return: a dictionary of database parameters
     """
     # create parser and read ini configuration file
-    parser = ConfigParser()
+    parser = configparser.ConfigParser()
     parser.read(filename)
  
     # get section, default to mysql

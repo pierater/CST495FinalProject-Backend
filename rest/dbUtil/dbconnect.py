@@ -1,10 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python3.5
 #Author: Laura Chavez
 #Module used to connect to database
 #Note: Should load db beforehand.
 
 from mysql.connector import MySQLConnection, Error
-from python_mysql_dbconfig import read_db_config
+from .python_mysql_dbconfig import read_db_config
 
 # Inserting data to Users Table
 # PARAM1: username value
@@ -55,15 +55,33 @@ def __change_data(query,args):
         
         cursor = conn.cursor()
         cursor.execute(query, args)
-        
+        return cursor.fetchall()
         conn.commit()
     except Error as error:
         print(error)
     
+    #finally:
+        #cursor.close()
+        #conn.close()
+'''
+Description: Raw query function for more complicated or obscure queries
+Author: Martin Almaraz
+'''
+def raw_query(query, args):
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+        cursor = conn.cursor()
+        cursor.execute(query, args)
+
+        return cursor
+
+    except Error as error:
+        print(error)
+
     finally:
         cursor.close()
         conn.close()
-
 
 ################ TESTING ##################
 # USED FOR TESTING
