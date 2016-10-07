@@ -3,4 +3,4 @@ machine:
         version: 3.5.2
 test:
     override:
-        - ./py.test
+        - py.test
