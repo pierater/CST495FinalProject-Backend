@@ -1,3 +1,3 @@
 {
-  "test/checkLogin_test.py::test_func": true
+  "src/test/checkLogin_test.py": true
 }
