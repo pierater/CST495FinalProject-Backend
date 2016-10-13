@@ -1,10 +1,10 @@
+'''
 #!/usr/bin/env python3.5
+
 from ... import app
 import unittest
-'''
 Description: test for making sure flask is up and running
 Author: Martin Almaraz
-'''
 
 class flaskTests(unittest.TestCase):
 
@@ -29,3 +29,4 @@ class flaskTests(unittest.TestCase):
         
         self.assertEqual(result.status_code, 200)
         return
+'''

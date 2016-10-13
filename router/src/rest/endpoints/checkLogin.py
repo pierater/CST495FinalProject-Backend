@@ -10,10 +10,11 @@ Author: Martin Almaraz
 
 checkLoginBlueprint = Blueprint('router', __name__, template_folder='templates')
 @checkLoginBlueprint.route("/checkLogin/", methods=['POST'])
-def checkLogin():
+def checkLogin(username = None, password = None):
 
-    username = request.form['username']
-    password = request.form['password']
+    if username is None:
+        username = request.form['username']
+        password = request.form['password']
 
     query = "SELECT `username`, `pass` FROM `users` WHERE `username` = %s AND `pass` = %s"
 
