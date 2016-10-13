@@ -1,6 +1,13 @@
 machine:
     python:
         version: 3.5.2
+general:
+    build_dir: router
 test:
     override:
-        - cd router && py.test
+        - py.test
+database:
+    override:
+        - mysql -u ubuntu circle_test < ./router/src/rest/dbUtil/dbschema.sql
+    services:
+        MySQL
