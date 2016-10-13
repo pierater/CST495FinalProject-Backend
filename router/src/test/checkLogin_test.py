@@ -1,5 +1,4 @@
 #!/usr/bin/env python3.5
-import unittest
 from . import preTest
 import checkLogin
 def test_checkLogin():

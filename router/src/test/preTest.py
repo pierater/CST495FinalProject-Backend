@@ -1,6 +1,6 @@
 #!/bin/env python3.5
 import sys
-
+import unittest
 sys.path.append('.')
 sys.path.append('./src')
 sys.path.append('./src/rest')
