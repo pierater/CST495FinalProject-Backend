@@ -9,8 +9,8 @@ Author: Pearce Reinsch
 '''
 
 
-checkLoginBlueprint = Blueprint('router', __name__, template_folder='templates')
-@checkLoginBlueprint.route("/getNearMe/", methods=['POST'])
+getNearMeBlueprint = Blueprint('router', __name__, template_folder='templates')
+@getNearBlueprint.route("/getNearMe/", methods=['POST'])
 # takes a user's location (latitude & longitude) and a distance (in KM)
 # 	returns a list of routes with a start point within the given distance of the user's location
 def getNearMe(userLat, userLon, dist):
