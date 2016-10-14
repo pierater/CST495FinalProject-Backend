@@ -1,0 +1,11 @@
+machine:
+    python:
+        version: 3.5.2
+general:
+    build_dir: router
+test:
+    override:
+        - py.test
+database:
+    override:
+        - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema.sql
