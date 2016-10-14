@@ -5,7 +5,6 @@
 
 from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
-import json
 
 # Inserting data to Users Table
 # PARAM1: username value
@@ -63,7 +62,6 @@ def __change_data(query,args):
             conn.commit()
         except:
             pass
-        print('6')
         return cursor.fetchall()
 
     except Error as error:
@@ -71,7 +69,6 @@ def __change_data(query,args):
         try:
             db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
             conn = MySQLConnection(**db_config)
-            print('made it to test?' + json.dumps(db_config))
             cursor = conn.cursor()
             cursor.execute(query, args)
             conn.commit()
