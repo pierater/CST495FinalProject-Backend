@@ -17,8 +17,18 @@ def test_checkLogin():
     
     assert checkLogin.checkLogin(username, password) == correctResponse
 
-def setup_function(test_checkLogin):
+def test_checkLogin_wrong_pass():
+    correctResponse = '"{status: failure}"'
+
+    assert checkLogin.checkLogin(username, 'badPass') == correctResponse
+
+def test_checkLogin_wrong_username():
+    correctResponse = '"{status: failure}"'
+
+    assert checkLogin.checkLogin('badUser', password) == correctResponse
+
+def setup_function():
     dbconnect.insert_data_users(username, "bio", password)
 
-def teardown_function(test_checkLogin):
+def teardown_function():
     dbconnect.delete_data('users', 'username', username)
