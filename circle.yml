@@ -8,4 +8,4 @@ test:
         - py.test
 database:
     override:
-        - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema.sql
+        - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema_test.sql
