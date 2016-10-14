@@ -100,7 +100,7 @@ def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
         try:
             db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
             conn = MySQLConnection(**db_config)
-            cursor = conn.cursor()
+            cursor = conn.cursor(buffered=True)
             query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
             args = (fieldvaluecondition,)
             cursor.execute(query, args)
