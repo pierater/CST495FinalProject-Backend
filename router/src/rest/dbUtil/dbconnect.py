@@ -15,7 +15,8 @@ def insert_data_users(username,bio,passwd):
         "VALUES(NULL,%s,%s,%s)"
     args = (username, bio, passwd)
     __change_data(query,args)
-    return
+    userid = get_field("idusers","users","username",username)
+    return userid
 
 # Inserting data to Routes Table
 # PARAM1: route value
@@ -24,7 +25,7 @@ def insert_data_users(username,bio,passwd):
 # PARAM4: userid value, user that the route belongs to
 def insert_data_routes(route,startPointLat,startPointLon,userid):
     query = "INSERT INTO routes(idroutes,route,startPointLat,startPointLon,userid) " \
-        "VALUES(NULL,%s,%s)"
+        "VALUES(NULL,%s,%s,%s,%s)"
     args = (route, startPointLat, startPointLon, userid)
     __change_data(query,args)
 
@@ -57,8 +58,8 @@ def __change_data(query,args):
         
         cursor = conn.cursor()
         cursor.execute(query, args)
-        return cursor.fetchall()
         conn.commit()
+        return cursor.fetchall()
     except Error as error:
         print(error)
     

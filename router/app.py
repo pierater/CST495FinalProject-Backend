@@ -9,10 +9,12 @@ sys.path.append('./src/rest/endpoints')
 sys.path.append('./src/rest/dbUtil')
 
 import checkLogin
+import createUser
 
 
 app = Flask(__name__)
 app.register_blueprint(checkLogin.checkLoginBlueprint)
+app.register_blueprint(createUser.createUserBlueprint)
 
 
 app.run()
