@@ -21,11 +21,12 @@ def uploadRoute():
     routeName = payload['route']['name']
     path = payload['route']['path']
 
-    print("RouteID:" + str(routeID))
+    print("RouteID:" + str(userID))
     print("Starting point: Lat:%s Lon: %s" % ( str(startingPointLat), str(startingPointLon)))
     print("Route Name: " + str(routeName))
     print("Path: " + str(path))
 
-    dbconnect.insert_data_routes(path, startingPointLat, startingPointLon, userID)
+    dbconnect.insert_data_routes(json.dumps(path), startingPointLat, startingPointLon, userID)
+
 
     return json.dumps(request.json)
