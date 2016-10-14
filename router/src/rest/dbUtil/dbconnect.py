@@ -78,8 +78,14 @@ def raw_query(query, args):
 
         return cursor
 
-    except Error as error:
-        print(error)
+    except:
+        try:
+            db_config = read_db_config('./src/rest/dbUtil/condig_test.ini')
+            conn = MySQLConnection(**db_config)
+            cursor = conn.cursor()
+            cursor.execute(query, args)
+        except Error as error:
+            print(error)
 
     finally:
         cursor.close()
