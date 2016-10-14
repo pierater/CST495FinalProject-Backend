@@ -13,7 +13,10 @@ getNearMeBlueprint = Blueprint('router', __name__, template_folder='templates')
 @getNearBlueprint.route("/getNearMe/", methods=['POST'])
 # takes a user's location (latitude & longitude) and a distance (in KM)
 # 	returns a list of routes with a start point within the given distance of the user's location
-def getNearMe(userLat, userLon, dist):
+def getNearMe():
+    userLat = request.form['userLat']
+    userLon = request.form['userLon']
+    dist = request.form['dist']
 	query =  "SELECT idroutes, route, ( 3959 * acos( cos( radians(" + userLat
 	query += " ) ) * cos( radians( startPointLat ) ) * cos( radians( startPointLon ) - radians(" + userLon
 	query += " ) ) + sin( radians(" + userLat + ") ) * sin( radians( startPointLat ) ) ) ) "
