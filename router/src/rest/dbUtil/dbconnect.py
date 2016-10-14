@@ -62,7 +62,10 @@ def __change_data(query,args):
             conn.commit()
         except:
             pass
-        return cursor.fetchall()
+        try:
+            return cursor.fetchall()
+        except:
+            pass
 
     except Error as error:
         print(error)

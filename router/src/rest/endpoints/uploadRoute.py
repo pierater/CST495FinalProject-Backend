@@ -9,24 +9,33 @@ Author: Angel Soriano`
 
 uploadRouteBlueprint = Blueprint('uploader', __name__, template_folder='templates')
 @uploadRouteBlueprint.route("/uploadRoute/", methods=['POST'])
-def uploadRoute():
-    #Getting payload
-    payload = request.json
-    print(payload)
+def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None, routeName = None, path = None):
 
-    # Getting all the values to insert into payload
-    userID = payload['id']
-    startingPointLat = payload['route']['startingPoint']['lat']
-    startingPointLon = payload['route']['startingPoint']['lon']
-    routeName = payload['route']['name']
-    path = payload['route']['path']
+    if userID is None: 
+        #Getting payload
+        payload = request.json
+        print(payload)
 
-    print("RouteID:" + str(userID))
-    print("Starting point: Lat:%s Lon: %s" % ( str(startingPointLat), str(startingPointLon)))
-    print("Route Name: " + str(routeName))
-    print("Path: " + str(path))
+        # Getting all the values to insert into payload
+        userID = payload['id']
+        startingPointLat = payload['route']['startingPoint']['lat']
+        startingPointLon = payload['route']['startingPoint']['lon']
+        routeName = payload['route']['name']
+        path = payload['route']['path']
 
-    dbconnect.insert_data_routes(json.dumps(path), startingPointLat, startingPointLon, userID)
+        print("RouteID:" + str(userID))
+        print("Starting point: Lat:%s Lon: %s" % ( str(startingPointLat), str(startingPointLon)))
+        print("Route Name: " + str(routeName))
+        print("Path: " + str(path))
 
-
-    return json.dumps(request.json)
+        try:
+            dbconnect.insert_data_routes(json.dumps(path), startingPointLat, startingPointLon, userID)
+            return json.dumps('{status: success}')
+        except:
+            return json.dumps('{status: failure}')
+   else:
+       try:
+            dbconnect.insert_data_routes(path, startingPointLat, startingPointLon, userID)
+            return json.dumps('{status: success}')
+        except:
+            return json.dumps('{status: failure}')
