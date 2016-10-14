@@ -58,9 +58,15 @@ def __change_data(query,args):
         
         cursor = conn.cursor()
         cursor.execute(query, args)
-        conn.commit()
+        try:
+            conn.commit()
+        except:
+            pass
+        print('6')
         return cursor.fetchall()
-    except:
+
+    except Error as error:
+        print(error)
         try:
             db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
             conn = MySQLConnection(**db_config)
@@ -71,31 +77,6 @@ def __change_data(query,args):
         except Error as error:
             print(error)
     
-    finally:
-        cursor.close()
-        conn.close()
-'''
-Description: Raw query function for more complicated or obscure queries
-Author: Martin Almaraz
-'''
-def raw_query(query, args):
-    try:
-        db_config = read_db_config()
-        conn = MySQLConnection(**db_config)
-        cursor = conn.cursor()
-        cursor.execute(query, args)
-
-        return cursor
-
-    except:
-        try:
-            db_config = read_db_config('./src/rest/dbUtil/condig_test.ini')
-            conn = MySQLConnection(**db_config)
-            cursor = conn.cursor()
-            cursor.execute(query, args)
-        except Error as error:
-            print(error)
-
     finally:
         cursor.close()
         conn.close()
