@@ -1,7 +1,6 @@
 #!/usr/bin/env python3.5
-from flask import json
-from flask import Blueprint
-from flask import request
+from flask import json, Blueprint, request
+import dbconnect
 
 '''
 Description: Rest endpoint for uploading route
@@ -16,7 +15,7 @@ def uploadRoute():
     print(payload)
 
     # Getting all the values to insert into payload
-    routeID = payload['id']
+    userID = payload['id']
     startingPointLat = payload['route']['startingPoint']['lat']
     startingPointLon = payload['route']['startingPoint']['lon']
     routeName = payload['route']['name']
@@ -27,6 +26,6 @@ def uploadRoute():
     print("Route Name: " + str(routeName))
     print("Path: " + str(path))
 
-    
+    dbconnect.insert_data_routes(path, startingPointLat, startingPointLon, userID)
 
     return json.dumps(request.json)
