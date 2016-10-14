@@ -69,7 +69,7 @@ def __change_data(query,args):
         try:
             db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
             conn = MySQLConnection(**db_config)
-            cursor = conn.cursor()
+            cursor = conn.cursor(buffered=True)
             cursor.execute(query, args)
             conn.commit()
             return cursor.fetchall()
