@@ -23,11 +23,14 @@ def insert_data_users(username,bio,passwd):
 # PARAM2: route start point latitude
 # PARAM3: route start point longitude
 # PARAM4: userid value, user that the route belongs to
-def insert_data_routes(route,startPointLat,startPointLon,userid):
+def insert_data_routes(route,startPointLat,startPointLon,userid, idroutes='NULL'):
     query = "INSERT INTO routes(idroutes,route,startPointLat,startPointLon,userid) " \
-        "VALUES(NULL,%s,%s,%s,%s)"
-    args = (route, startPointLat, startPointLon, userid)
+        "VALUES(%s,%s,%s,%s,%s)"
+    print(query)
+    args = (idroutes, route, startPointLat, startPointLon, userid)
     __change_data(query,args)
+
+    return get_field("idroutes", "routes", "idroutes", idroutes)
 
 
 # OPTING OUT COMMENTS TABLE FOR NOW..
@@ -53,23 +56,35 @@ def delete_data(tablename, wherefield, condition):
 # Connects to database and processes the query
 def __change_data(query,args):
     try:
+        print(9)
         db_config = read_db_config()
+        print(8)
         conn = MySQLConnection(**db_config)
+        print(7)
         
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
+        print(6)
         cursor.execute(query, args)
+        print(5)
         try:
+            print(4)
             conn.commit()
+            print(3)
+        except Error as error:
+            print(error)
+            print(0)
+        try:
+            return cursor.fetchall()
         except:
+            print(-1)
             pass
-        return cursor.fetchall()
 
     except Error as error:
         print(error)
         try:
             db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
             conn = MySQLConnection(**db_config)
-            cursor = conn.cursor(buffered=True)
+            cursor = conn.cursor(buffered=True, dictionary=True)
             cursor.execute(query, args)
             conn.commit()
             return cursor.fetchall()
@@ -84,16 +99,24 @@ def __change_data(query,args):
 # USED FOR TESTING
 def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
     try:
+        print(1)
         db_config = read_db_config()
+        print(2)
         conn = MySQLConnection(**db_config)
-        cursor = conn.cursor()
+        print(3)
+        cursor = conn.cursor(dictionary=True)
+        print(4)
         
         query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
+        print(5)
         args = (fieldvaluecondition,)
+        print(6)
         cursor.execute(query,args)
+        print(7)
         
-        row = cursor.fetchone()
-        return row[0]
+        row = cursor.fetchall()
+        print(8)
+        return row
     
     except Error as error:
         print(error)
