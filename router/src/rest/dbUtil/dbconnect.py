@@ -89,23 +89,15 @@ def __change_data(query,args):
 # USED FOR TESTING
 def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
     try:
-        print(1)
         db_config = read_db_config()
-        print(2)
         conn = MySQLConnection(**db_config)
-        print(3)
         cursor = conn.cursor(dictionary=True)
-        print(4)
         
         query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
-        print(5)
         args = (fieldvaluecondition,)
-        print(6)
         cursor.execute(query,args)
-        print(7)
         
         row = cursor.fetchall()
-        print(8)
         return row
     
     except Error as error:
