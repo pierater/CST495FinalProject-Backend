@@ -23,14 +23,13 @@ def insert_data_users(username,bio,passwd):
 # PARAM2: route start point latitude
 # PARAM3: route start point longitude
 # PARAM4: userid value, user that the route belongs to
-def insert_data_routes(route,startPointLat,startPointLon,userid, idroutes='NULL'):
-    query = "INSERT INTO routes(idroutes,route,startPointLat,startPointLon,userid) " \
-        "VALUES(%s,%s,%s,%s,%s)"
-    print(query)
-    args = (idroutes, route, startPointLat, startPointLon, userid)
+def insert_data_routes(route,startPointLat,startPointLon,userid):
+    query = "INSERT INTO routes(route,startPointLat,startPointLon,userid) " \
+        "VALUES(%s,%s,%s,%s)"
+    args = (route, startPointLat, startPointLon, userid)
     __change_data(query,args)
 
-    return get_field("idroutes", "routes", "idroutes", idroutes)
+    return get_field("idroutes", "routes", "route", route)
 
 
 # OPTING OUT COMMENTS TABLE FOR NOW..
@@ -56,27 +55,18 @@ def delete_data(tablename, wherefield, condition):
 # Connects to database and processes the query
 def __change_data(query,args):
     try:
-        print(9)
         db_config = read_db_config()
-        print(8)
         conn = MySQLConnection(**db_config)
-        print(7)
         
         cursor = conn.cursor(dictionary=True)
-        print(6)
         cursor.execute(query, args)
-        print(5)
         try:
-            print(4)
             conn.commit()
-            print(3)
         except Error as error:
             print(error)
-            print(0)
         try:
             return cursor.fetchall()
         except:
-            print(-1)
             pass
 
     except Error as error:
