@@ -34,6 +34,7 @@ class TestdownloadRoute_endpoints():
 
     def setup_method(self):
         self.routeId = dbconnect.insert_data_routes(self.routeStr, self.startPointLat, self.startPointLon, self.userId)
+        print(self.routeId)
         self.routeId = self.routeId[0]['idroutes']
         print("here", self.routeId)
 
