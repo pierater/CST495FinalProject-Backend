@@ -18,7 +18,6 @@ def test_uploadRoute():
     correctResponse = '"{status: success}"'
 
     response = uploadRoute.uploadRoute(userID, startingPointLat, startingPointLon, routeName, path)
-    print(response)
     assert (response == correctResponse)
 
 '''
