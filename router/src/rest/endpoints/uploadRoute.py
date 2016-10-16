@@ -33,8 +33,8 @@ def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None,
             return json.dumps('{status: success}')
         except:
             return json.dumps('{status: failure}')
-   else:
-       try:
+    else:
+        try:
             dbconnect.insert_data_routes(path, startingPointLat, startingPointLon, userID)
             return json.dumps('{status: success}')
         except:
