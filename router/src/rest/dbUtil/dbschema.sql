@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS router.routes (
 	startPointLat VARCHAR(10) NOT NULL,
 	startPointLon VARCHAR(10) NOT NULL,
 	userid VARCHAR(45) NOT NULL, 
+	routeName VARCHAR(64) NOT NULL,
 	PRIMARY KEY (idroutes), 
 	UNIQUE INDEX idroutes_UNIQUE (idroutes ASC)) ENGINE = InnoDB;
 -- Table router.comments

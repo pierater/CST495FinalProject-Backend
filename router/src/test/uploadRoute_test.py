@@ -17,18 +17,18 @@ path = '{"lat" : [123, 456, 102, 004, 123], "lon" : [11, 33, 44, 55, 16] }'
 def test_uploadRoute():
     correctResponse = '"{status: success}"'
 
-
     response = uploadRoute.uploadRoute(userID, startingPointLat, startingPointLon, routeName, path)
     print(response)
     assert (response == correctResponse)
-   
-    '''
-    query = "SELECT * FROM 'routes' WHERE 'userid` = %s AND `routeName` = %s"
+
+'''
+def test_routeUploaded():
+
+    query = "SELECT * FROM 'routes' WHERE 'userid` = %s"
     try:
         cursor = dbconnect.__change_data(query, (userID, routeName))
     except:
-        return 
-    '''
+'''
 
 def teardown_function():
     dbconnect.delete_data('routes', 'userid', userID)

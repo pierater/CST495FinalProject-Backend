@@ -16,6 +16,7 @@ class TestdownloadRoute_endpoints():
     userId = '1'
     startPointLat = '123'
     startPointLon = '456'
+    routeName = 'test route'
 
     def test_downloadRoute(self):
         
@@ -25,6 +26,7 @@ class TestdownloadRoute_endpoints():
         assert response['startPointLat'] == self.startPointLat
         assert response['startPointLon'] == self.startPointLon
         assert response['userid'] == self.userId
+        assert response['routeName'] == self.routeName
 
     def test_downloadRoute_bad_routeid(self):
         correctResponse = '"{status: failure}"'
@@ -33,7 +35,7 @@ class TestdownloadRoute_endpoints():
 
 
     def setup_method(self):
-        self.routeId = dbconnect.insert_data_routes(self.routeStr, self.startPointLat, self.startPointLon, self.userId)
+        self.routeId = dbconnect.insert_data_routes(self.routeStr, self.startPointLat, self.startPointLon, self.userId, self.routeName)
         print(self.routeId)
         self.routeId = self.routeId[0]['idroutes']
         print("here", self.routeId)

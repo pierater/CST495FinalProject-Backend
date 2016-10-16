@@ -23,10 +23,10 @@ def insert_data_users(username,bio,passwd):
 # PARAM2: route start point latitude
 # PARAM3: route start point longitude
 # PARAM4: userid value, user that the route belongs to
-def insert_data_routes(route,startPointLat,startPointLon,userid):
-    query = "INSERT INTO routes(route,startPointLat,startPointLon,userid) " \
-        "VALUES(%s,%s,%s,%s)"
-    args = (route, startPointLat, startPointLon, userid)
+def insert_data_routes(route,startPointLat,startPointLon,userid,routeName):
+    query = "INSERT INTO routes(route,startPointLat,startPointLon,userid,routeName) " \
+        "VALUES(%s,%s,%s,%s,%s)"
+    args = (route, startPointLat, startPointLon, userid, routeName)
     __change_data(query,args)
 
     return get_field("idroutes", "routes", "route", route)
