@@ -8,7 +8,7 @@ Author: Martin Almaraz
 '''
 
 
-checkLoginBlueprint = Blueprint('router', __name__, template_folder='templates')
+checkLoginBlueprint = Blueprint('checkLogin', __name__, template_folder='templates')
 @checkLoginBlueprint.route("/checkLogin/", methods=['POST'])
 def checkLogin(username = None, password = None):
 
