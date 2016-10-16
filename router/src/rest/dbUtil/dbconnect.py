@@ -24,10 +24,12 @@ def insert_data_users(username,bio,passwd):
 # PARAM3: route start point longitude
 # PARAM4: userid value, user that the route belongs to
 def insert_data_routes(route,startPointLat,startPointLon,userid):
-    query = "INSERT INTO routes(idroutes,route,startPointLat,startPointLon,userid) " \
-        "VALUES(NULL,%s,%s,%s,%s)"
+    query = "INSERT INTO routes(route,startPointLat,startPointLon,userid) " \
+        "VALUES(%s,%s,%s,%s)"
     args = (route, startPointLat, startPointLon, userid)
     __change_data(query,args)
+
+    return get_field("idroutes", "routes", "route", route)
 
 
 # OPTING OUT COMMENTS TABLE FOR NOW..
@@ -56,12 +58,12 @@ def __change_data(query,args):
         db_config = read_db_config()
         conn = MySQLConnection(**db_config)
         
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         cursor.execute(query, args)
         try:
             conn.commit()
-        except:
-            pass
+        except Error as error:
+            print(error)
         try:
             return cursor.fetchall()
         except:
@@ -72,7 +74,7 @@ def __change_data(query,args):
         try:
             db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
             conn = MySQLConnection(**db_config)
-            cursor = conn.cursor(buffered=True)
+            cursor = conn.cursor(buffered=True, dictionary=True)
             cursor.execute(query, args)
             conn.commit()
             return cursor.fetchall()
@@ -89,14 +91,14 @@ def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
     try:
         db_config = read_db_config()
         conn = MySQLConnection(**db_config)
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         
         query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
         args = (fieldvaluecondition,)
         cursor.execute(query,args)
         
-        row = cursor.fetchone()
-        return row[0]
+        row = cursor.fetchall()
+        return row
     
     except Error as error:
         print(error)
