@@ -34,7 +34,7 @@ class TestGetNearMe():
 		self.routeId1 = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
 		self.routeId2 = dbconnect.insert_data_routes(self.route2,self.startPointLat2,self.startPointLon2,self.userid,self.routeName2)
 		self.routeId1 = self.routeId1[0]['idroutes']
-		self.routeId2 = self.routeId2[1]['idroutes']
+		self.routeId2 = self.routeId2[0]['idroutes']
 
 	def teardown_method(self):
 		dbconnect.delete_data('routes', 'idroutes', self.routeId1)
