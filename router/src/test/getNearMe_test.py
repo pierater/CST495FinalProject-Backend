@@ -31,10 +31,12 @@ class TestGetNearMe():
 		assert response[0]['idroutes'] == self.routeId1
 
 	def setup_method(self):
-		self.routeId1 = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
-		self.routeId2 = dbconnect.insert_data_routes(self.route2,self.startPointLat2,self.startPointLon2,self.userid,self.routeName2)
-		self.routeId1 = int(self.routeId1[0]['idroutes'])
-		self.routeId2 = int(self.routeId2[0]['idroutes'])
+		routeId1list = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
+		routeId2list = dbconnect.insert_data_routes(self.route2,self.startPointLat2,self.startPointLon2,self.userid,self.routeName2)
+		routeId1str = routeId1list[0]['idroutes']
+		routeId2str = routeId2list[0]['idroutes']
+		self.routeId1 = int(routeId1str)
+		self.routeId2 = int(routeId2str)
 
 	def teardown_method(self):
 		dbconnect.delete_data('routes', 'userid', self.userid)
