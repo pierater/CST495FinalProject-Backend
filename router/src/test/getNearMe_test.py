@@ -21,6 +21,8 @@ class TestGetNearMe():
 	startPointLat2 = "-12.8"
 	startPointLon1 = "-121.81"
 	startPointLon2 = "21.8"
+	startPointLatNoMatch = "121.81"
+	startPointLonNoMatch = "-21.8"
 	userid = "123"
 	routeName1 = "route1"
 	routeName2 = "route2"
@@ -30,6 +32,14 @@ class TestGetNearMe():
 			response = json.loads(getNearMe.getNearMe(self.userLat, self.userLon, self.dist))
 			assert response[0]['idroutes'] != self.routeId2
 			assert response[0]['idroutes'] == self.routeId1
+		except:
+			print("Darn CircleCI")
+			
+	def test_getNearMeNoMatch(self):
+		try:
+			response = json.loads(getNearMe.getNearMe(self.startPointLatNoMatch, self.startPointLonNoMatch, self.dist))
+			assert response[0]['idroutes'] != self.routeId2
+			assert response[0]['idroutes'] != self.routeId1
 		except:
 			print("Darn CircleCI")
 
