@@ -54,32 +54,49 @@ def delete_data(tablename, wherefield, condition):
 
 # Connects to database and processes the query
 def __change_data(query,args):
+
     try:
-        db_config = read_db_config()
+        db_config = read_db_config('./src/rest/dbUtil/configAWS.ini')
+        print(1)
         conn = MySQLConnection(**db_config)
-        
-        cursor = conn.cursor(dictionary=True)
+        print(2)
+        cursor = conn.cursor(buffered=True, dictionary=True)
+        print(3)
         cursor.execute(query, args)
-        try:
-            conn.commit()
-        except Error as error:
-            print(error)
-        try:
-            return cursor.fetchall()
-        except:
-            pass
+        print(4)
+        conn.commit()
+        print(5)
+        return cursor.fetchall()
 
     except Error as error:
-        print(error)
+
+        print(error, "here")
         try:
-            db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
+            db_config = read_db_config()
             conn = MySQLConnection(**db_config)
-            cursor = conn.cursor(buffered=True, dictionary=True)
+            
+            cursor = conn.cursor(dictionary=True)
             cursor.execute(query, args)
-            conn.commit()
-            return cursor.fetchall()
+            try:
+                conn.commit()
+            except Error as error:
+                print(error)
+            try:
+                return cursor.fetchall()
+            except:
+                pass
+
         except Error as error:
             print(error)
+            try:
+                db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
+                conn = MySQLConnection(**db_config)
+                cursor = conn.cursor(buffered=True, dictionary=True)
+                cursor.execute(query, args)
+                conn.commit()
+                return cursor.fetchall()
+            except Error as error:
+                print(error)
     
     finally:
         cursor.close()
