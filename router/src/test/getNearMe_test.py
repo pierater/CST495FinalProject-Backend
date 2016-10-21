@@ -34,12 +34,17 @@ class TestGetNearMe():
 			print("Darn CircleCI")
 
 	def setup_method(self):
-		route1list = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
-		route2list = dbconnect.insert_data_routes(self.route2,self.startPointLat2,self.startPointLon2,self.userid,self.routeName2)
-		route1dict = route1list[0]
-		route2dict = route2list[0]
-		self.routeId1 = route1dict['idroutes']
-		self.routeId2 = route2dict['idroutes']
+		try:
+			route1list = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
+			route2list = dbconnect.insert_data_routes(self.route2,self.startPointLat2,self.startPointLon2,self.userid,self.routeName2)
+			route1dict = route1list[0]
+			route2dict = route2list[0]
+			self.routeId1 = route1dict['idroutes']
+			self.routeId2 = route2dict['idroutes']
+		except:
+			self.routeId1 = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
+			self.routeId2 = dbconnect.insert_data_routes(self.route2,self.startPointLat2,self.startPointLon2,self.userid,self.routeName2)
+			print("Darn CircleCI")
 
 	def teardown_method(self):
 		dbconnect.delete_data('routes', 'userid', self.userid)
