@@ -31,7 +31,7 @@ class TestGetNearMe():
 			assert response[0]['idroutes'] != self.routeId2
 			assert response[0]['idroutes'] == self.routeId1
 		except:
-			print "Darn CircleCI"
+			print("Darn CircleCI")
 
 	def setup_method(self):
 		route1list = dbconnect.insert_data_routes(self.route1,self.startPointLat1,self.startPointLon1,self.userid,self.routeName1)
