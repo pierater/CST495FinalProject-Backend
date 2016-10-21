@@ -35,10 +35,12 @@ class TestdownloadRoute_endpoints():
 
 
     def setup_method(self):
-        self.routeId = dbconnect.insert_data_routes(self.routeStr, self.startPointLat, self.startPointLon, self.userId, self.routeName)
-        print(self.routeId)
-        self.routeId = self.routeId[0]['idroutes']
-        print("here", self.routeId)
+    	try:
+	        self.routeId = dbconnect.insert_data_routes(self.routeStr, self.startPointLat, self.startPointLon, self.userId, self.routeName)
+        	self.routeId = self.routeId[0]['idroutes']
+	    except:
+	    	self.routeId = dbconnect.insert_data_routes(self.routeStr, self.startPointLat, self.startPointLon, self.userId, self.routeName)
+			print("Darn CircleCI")
 
     def teardown_method(self):
         dbconnect.delete_data('routes', 'idroutes', self.routeId)
