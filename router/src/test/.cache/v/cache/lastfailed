@@ -1,3 +1,12 @@
 {
-  "flaskRunning_test.py": true
+  "checkLogin_test.py::test_checkLogin": true,
+  "checkLogin_test.py::test_checkLogin_wrong_pass": true,
+  "checkLogin_test.py::test_checkLogin_wrong_username": true,
+  "createUser_test.py::test_createExistingUser": true,
+  "createUser_test.py::test_createUser": true,
+  "downloadRoute_test.py::TestdownloadRoute_endpoints::()::test_downloadRoute": true,
+  "downloadRoute_test.py::TestdownloadRoute_endpoints::()::test_downloadRoute_bad_routeid": true,
+  "getNearMe_test.py::TestGetNearMe::()::test_getNearMe": true,
+  "getNearMe_test.py::TestGetNearMe::()::test_getNearMeNoMatch": true,
+  "uploadRoute_test.py::test_uploadRoute": true
 }

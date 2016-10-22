@@ -5,7 +5,13 @@ general:
     build_dir: router
 test:
     override:
-        - py.test
+        - mkdir -p $CIRCLE_TEST_REPORTS/reports/
+        - py.test --junitxml=$CIRCLE_TEST_REPORTS/reports/test_result.xml
+    post:
+        - bash <(curl -s https://codecov.io/bash)
+notify:
+    webhooks:
+        - url: http://csumbse.net/harbormaster/hook/circleci/
 database:
     override:
         - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema_test.sql
