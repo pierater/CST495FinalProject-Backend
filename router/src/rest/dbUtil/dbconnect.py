@@ -3,20 +3,23 @@
 #Module used to connect to database
 #Note: Should load db beforehand.
 
-from mysql.connector import MySQLConnection, Error
+from mysql.connector import MySQLConnection, Error, errorcode
 from python_mysql_dbconfig import read_db_config
 
 # Inserting data to Users Table
 # PARAM1: username value
 # PARAM2: bio value
 # PARAM3: passwd (NOT HASHED IN FUNCTION)
+# Returns new user's id
 def insert_data_users(username,bio,passwd):
     query = "INSERT INTO users(idusers,username,bio,pass) " \
         "VALUES(NULL,%s,%s,%s)"
     args = (username, bio, passwd)
-    __change_data(query,args)
+    error = __change_data(query,args)
+    if error is None:
+        return -1
     userid = get_field("idusers","users","username",username)
-    return userid
+    return userid[0]['idusers']
 
 # Inserting data to Routes Table
 # PARAM1: route value
@@ -63,6 +66,9 @@ def __change_data(query,args):
         try:
             conn.commit()
         except Error as error:
+            # If there is a duplicate entry it will return None, (INSERT)
+            if error.errno == errorcode.ER_DUP_ENTRY:
+                return None
             print(error)
         try:
             return cursor.fetchall()
