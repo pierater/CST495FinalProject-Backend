@@ -6,6 +6,14 @@ general:
 test:
     override:
         - py.test
+    post:
+        - mkdir -p $CIRCLE_TEST_REPORTS/reports/
+        - cp ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports/
+        - mvn verify
+        - bash <(curl -s https://codecov.io/bash)
+notify:
+    webhooks:
+        - url: http://csumbse.net/harbormaster/hook/circleci/
 database:
     override:
         - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema_test.sql
