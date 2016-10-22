@@ -1,7 +1,1 @@
-{
-  "src/test/checkLogin_test.py::test_checkLogin": true,
-  "src/test/checkLogin_test.py::test_checkLogin_wrong_pass": true,
-  "src/test/checkLogin_test.py::test_checkLogin_wrong_username": true,
-  "src/test/downloadRoute_test.py::TestdownloadRoute_endpoints::()::test_downloadRoute": true,
-  "src/test/downloadRoute_test.py::TestdownloadRoute_endpoints::()::test_downloadRoute_bad_routeid": true
-}
+{}

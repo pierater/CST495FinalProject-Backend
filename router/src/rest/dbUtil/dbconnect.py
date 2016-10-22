@@ -6,6 +6,8 @@
 from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
 
+dbConfigs = ['./src/rest/dbUtil/config_test.ini', './src/rest/dbUtil/configAWS.ini', './src/rest/dbUtil/config.ini']
+
 # Inserting data to Users Table
 # PARAM1: username value
 # PARAM2: bio value
@@ -55,85 +57,42 @@ def delete_data(tablename, wherefield, condition):
 # Connects to database and processes the query
 def __change_data(query,args):
 
-    try:
-        db_config = read_db_config('./src/rest/dbUtil/configAWS.ini')
-        print(1)
-        conn = MySQLConnection(**db_config)
-        print(2)
-        cursor = conn.cursor(buffered=True, dictionary=True)
-        print(3)
-        cursor.execute(query, args)
-        print(4)
-        conn.commit()
-        print(5)
-        return cursor.fetchall()
-
-    except Error as error:
-
-        print(error, "here")
+    for config in dbConfigs:
         try:
-            db_config = read_db_config()
+            import os
+            print(os.getcwd())
+            db_config = read_db_config(config)
             conn = MySQLConnection(**db_config)
-            
-            cursor = conn.cursor(dictionary=True)
+            cursor = conn.cursor(buffered=True, dictionary=True)
             cursor.execute(query, args)
-            try:
-                conn.commit()
-            except Error as error:
-                print(error)
+            conn.commit()
             try:
                 return cursor.fetchall()
             except:
                 pass
-
         except Error as error:
             print(error)
-            try:
-                db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
-                conn = MySQLConnection(**db_config)
-                cursor = conn.cursor(buffered=True, dictionary=True)
-                cursor.execute(query, args)
-                conn.commit()
-                return cursor.fetchall()
-            except Error as error:
-                print(error)
-    
-    finally:
-        cursor.close()
-        conn.close()
-
+            continue
 ################ TESTING ##################
 # USED FOR TESTING
 def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
-    try:
-        db_config = read_db_config()
-        conn = MySQLConnection(**db_config)
-        cursor = conn.cursor(dictionary=True)
-        
-        query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
-        args = (fieldvaluecondition,)
-        cursor.execute(query,args)
-        
-        row = cursor.fetchall()
-        return row
-    
-    except Error as error:
-        print(error)
+
+    for config in dbConfigs:
         try:
-            db_config = read_db_config('./src/rest/dbUtil/config_test.ini')
+            db_config = read_db_config(config)
             conn = MySQLConnection(**db_config)
-            cursor = conn.cursor(buffered=True)
+            cursor = conn.cursor(dictionary=True)
+            
             query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
             args = (fieldvaluecondition,)
-            cursor.execute(query, args)
-            row = cursor.fetchone()
-            return row[0]
+            cursor.execute(query,args)
+            
+            row = cursor.fetchall()
+            return row
         except Error as error:
             print(error)
+            continue
     
-    finally:
-        conn.close()
-
 def testInsert():
     insert_data_users("user123", "bioInfo","pw098")
     assert (get_field("idusers", "users","username","user123") > 0 ),"Insert Users error"
