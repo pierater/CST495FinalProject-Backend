@@ -1,3 +1,7 @@
 {
-  "test/flaskRunning_test.py": true
+  "test/checkLogin_test.py": true,
+  "test/createUser_test.py": true,
+  "test/downloadRoute_test.py": true,
+  "test/getNearMe_test.py": true,
+  "test/uploadRoute_test.py": true
 }
