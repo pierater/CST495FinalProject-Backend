@@ -41,6 +41,11 @@ public class DebugPage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openLoginActivity(View view) {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
