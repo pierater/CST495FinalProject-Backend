@@ -17,8 +17,35 @@
         android:layout_height="wrap_content"
         android:text="Main Route Record Page"
         android:onClick="openRecordActivity"
-        android:id="@+id/RecordButton"
+        android:id="@+id/DebugRecordButton"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Settings"
+        android:onClick="openProfileActivity"
+        android:id="@+id/DebugProfileButton"
+        android:layout_below="@+id/DebugRecordButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openLoginActivity"
+        android:id="@+id/DebugLoginButton"
+        android:layout_below="@+id/DebugProfileButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friend Management"
+        android:onClick="openFriendsActivity"
+        android:id="@+id/DebugFriendsButton"
+        android:layout_below="@+id/DebugLoginButton"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -26,38 +53,8 @@
         android:layout_height="wrap_content"
         android:text="My Routes"
         android:onClick="openMyRoutesActivity"
-        android:id="@+id/MyRoutesButton"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/DebugMyRoutesButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="105dp" />
+        android:layout_below="@+id/DebugFriendsButton" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Friend Management"
-        android:onClick="openFriendsActivity"
-        android:id="@+id/FriendsButton"
-        android:layout_above="@+id/MyRoutesButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile Settings"
-        android:onClick="openProfileActivity"
-        android:id="@+id/ProfileButton"
-        android:layout_below="@+id/RecordButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp" />
-
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="openLoginActivity"
-        android:id="@+id/LoginButton"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/ProfileButton"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

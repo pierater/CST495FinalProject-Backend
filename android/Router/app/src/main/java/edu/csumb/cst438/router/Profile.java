@@ -10,4 +10,8 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
     }
+
+    public void getProfile() {
+        // get profile deets from either internal or external DB
+    }
 }
