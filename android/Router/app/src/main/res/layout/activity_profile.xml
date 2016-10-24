@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/usernameET"
         android:layout_alignTop="@+id/textView5"
         android:layout_alignParentEnd="true" />
 
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/passwordET"
         android:layout_alignTop="@+id/textView8"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp" />
@@ -77,7 +77,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editText3"
-        android:layout_above="@+id/editText"
+        android:layout_above="@+id/usernameET"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
