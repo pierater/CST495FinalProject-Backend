@@ -83,9 +83,11 @@
         android:text="Miles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_alignParentEnd="true"
         android:id="@+id/DistanceUnitsButton_Miles"
         android:layout_below="@+id/DistanceUnitsText"
-        android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/ProfilePrivacyText" />
 
     <Button
@@ -97,12 +99,15 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/ProfilePrivacyText" />
 
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="Phil"
         android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
         android:layout_above="@+id/EmailText"
         android:layout_marginBottom="18dp"
         android:id="@+id/UsernameEditText"
@@ -110,6 +115,7 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/UsernameText"
         android:textSize="18sp" />
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -135,5 +141,6 @@
         android:layout_alignParentStart="true"
         android:textSize="18sp"
         android:layout_below="@+id/ProfileBioText" />
+
 
 </RelativeLayout>
