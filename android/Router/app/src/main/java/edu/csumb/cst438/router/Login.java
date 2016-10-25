@@ -120,4 +120,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         login_button = (Button) findViewById(R.id.login_button);
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
     }
+
+    public void sendCreds() {
+
+    }
 }

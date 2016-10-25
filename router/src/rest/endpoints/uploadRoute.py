@@ -23,19 +23,24 @@ def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None,
         routeName = payload['route']['name']
         path = payload['route']['path']
 
-        print("RouteID:" + str(userID))
-        print("Starting point: Lat:%s Lon: %s" % ( str(startingPointLat), str(startingPointLon)))
-        print("Route Name: " + str(routeName))
-        print("Path: " + str(path))
+        if userID != None and startingPointLat != None and startingPointLon != None and routeName != None and path != None:
 
-        try:
-            dbconnect.insert_data_routes(json.dumps(path), startingPointLat, startingPointLon, userID, routeName)
-            return json.dumps('{status: success}')
-        except:
+            try:
+                dbconnect.insert_data_routes(json.dumps(path), startingPointLat, startingPointLon, userID, routeName)
+                return json.dumps('{status: success}')
+            except:
+                return json.dumps('{status: failure}')
+        else:
             return json.dumps('{status: failure}')
     else:
-        try:
-            dbconnect.insert_data_routes(path, startingPointLat, startingPointLon, userID, routeName)
-            return json.dumps('{status: success}')
-        except:
+        
+        if userID != None and startingPointLat != None and startingPointLon != None and routeName != None and path != None:
+
+            try:
+                dbconnect.insert_data_routes(path, startingPointLat, startingPointLon, userID, routeName)
+                return json.dumps('{status: success}')
+            except:
+                return json.dumps('{status: failure}')
+        else:
             return json.dumps('{status: failure}')
+

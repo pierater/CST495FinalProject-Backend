@@ -5,4 +5,5 @@
     <string name="search_title">search</string>
     <string name="search_button_text">Searching</string>
     <string name="server_client_id">873525711585-qno80ennfsmavl40fon30lum595e78te.apps.googleusercontent.com</string>
+    <string name="title_activity_main">Map</string>
 </resources>

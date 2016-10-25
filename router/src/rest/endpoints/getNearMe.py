@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3.4
 import json
 from flask import Blueprint, request
 import dbconnect
@@ -22,7 +22,7 @@ def getNearMe(userLat = None, userLon = None, dist = None):
 	query = "SELECT idroutes, route, ( 3959 * acos( cos( radians(" + userLat
 	query += " ) ) * cos( radians( startPointLat ) ) * cos( radians( startPointLon ) - radians(" + userLon
 	query += " ) ) + sin( radians(" + userLat + ") ) * sin( radians( startPointLat ) ) ) ) "
-	query += "AS distance FROM routes HAVING distance < 25 ORDER BY distance LIMIT 0 , 20" 
+	query += "AS distance FROM routes HAVING distance < " + str(dist) + " ORDER BY distance LIMIT 0 , 20" 
 	
 	'''
 	~ routes Table ~
@@ -34,7 +34,6 @@ def getNearMe(userLat = None, userLon = None, dist = None):
 	userid VARCHAR(45) NOT NULL, 
 	
 	'''
-	
 	cursor = dbconnect.__change_data(query,dist)
 	
 	return json.dumps(cursor)

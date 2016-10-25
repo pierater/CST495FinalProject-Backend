@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3.4
 from flask import Flask
 import sys
 
@@ -13,10 +13,11 @@ import uploadRoute
 import createUser
 import downloadRoute
 
-app = Flask(__name__)
-app.register_blueprint(checkLogin.checkLoginBlueprint)
-app.register_blueprint(createUser.createUserBlueprint)
-app.register_blueprint(uploadRoute.uploadRouteBlueprint)
-app.register_blueprint(downloadRoute.downloadRouteBlueprint)
+application = Flask(__name__)
+application.register_blueprint(checkLogin.checkLoginBlueprint)
+application.register_blueprint(createUser.createUserBlueprint)
+application.register_blueprint(uploadRoute.uploadRouteBlueprint)
+application.register_blueprint(downloadRoute.downloadRouteBlueprint)
 
-app.run(debug=True)
+if __name__ == '__main__':
+    application.run(debug=True)

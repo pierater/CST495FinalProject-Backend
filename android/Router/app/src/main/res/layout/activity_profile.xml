@@ -13,46 +13,74 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username:"
-        android:id="@+id/textView4"
+        android:id="@+id/UsernameText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:textSize="26sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email:"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:id="@+id/EmailText"
+        android:layout_below="@+id/UsernameText"
+        android:layout_alignParentLeft="true"
+        android:textSize="26sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Distance Units:"
-        android:id="@+id/textView6"
-        android:layout_above="@+id/textView7"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp" />
+        android:id="@+id/DistanceUnitsText"
+        android:textSize="26sp"
+        android:layout_below="@+id/EmailText"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:text="Kilometers"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DistanceUnitsText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:id="@+id/DistanceUnitsButton_Kilometers"
+        android:layout_toStartOf="@+id/ProfilePrivacyButton_Private"
+        android:layout_width="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile Privacy:"
-        android:id="@+id/textView7"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/textView6" />
+        android:id="@+id/ProfilePrivacyText"
+        android:textSize="26sp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/DistanceUnitsButton_Kilometers" />
+
+    <Button
+        android:text="Public"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/ProfilePrivacyText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:id="@+id/ProfilePrivacyButton_Public"
+        android:elevation="0dp"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="false"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/ProfilePrivacyButton_Private" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile Bio:"
-        android:id="@+id/textView8"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_marginBottom="107dp" />
+        android:id="@+id/ProfileBioText"
+        android:textSize="26sp"
+        android:layout_below="@+id/ProfilePrivacyButton_Public"
+        android:layout_alignParentStart="true" />
 
-    <EditText
+    <Button
+        android:text="Miles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
@@ -60,24 +88,70 @@
         android:id="@+id/usernameET"
         android:layout_alignTop="@+id/textView5"
         android:layout_alignParentEnd="true" />
+        android:id="@+id/DistanceUnitsButton_Miles"
+        android:layout_below="@+id/DistanceUnitsText"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/ProfilePrivacyText" />
 
-    <EditText
+    <Button
+        android:text="Private"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/passwordET"
-        android:layout_alignTop="@+id/textView8"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:id="@+id/ProfilePrivacyButton_Private"
+        android:layout_below="@+id/ProfilePrivacyText"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/ProfilePrivacyText" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
+        android:text="Phil"
         android:ems="10"
+<<<<<<< HEAD
+        android:id="@+id/passwordET"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+=======
+        android:layout_above="@+id/EmailText"
+        android:layout_marginBottom="18dp"
+        android:id="@+id/UsernameEditText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/UsernameText"
+        android:textSize="18sp" />
+>>>>>>> b087c5ad56f8795d4755939e3c4312ed735fedc1
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_alignBottom="@+id/EmailText"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/EmailTextEdit"
+        android:textSize="18sp"
+        android:layout_below="@+id/UsernameText"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/EmailText"
+        android:text="e@mail.ink" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+<<<<<<< HEAD
         android:id="@+id/editText3"
         android:layout_above="@+id/usernameET"
         android:layout_centerHorizontal="true" />
+=======
+        android:id="@+id/ProfileBioEditText"
+        android:text="Bio info here."
+        android:layout_alignParentStart="true"
+        android:textSize="18sp"
+        android:layout_below="@+id/ProfileBioText" />
+>>>>>>> b087c5ad56f8795d4755939e3c4312ed735fedc1
 
 </RelativeLayout>

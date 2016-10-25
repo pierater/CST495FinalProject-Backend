@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3.4
 import configparser
  
  
@@ -12,6 +12,7 @@ def read_db_config(filename='./src/rest/dbUtil/config.ini', section='mysql'):
     parser = configparser.ConfigParser()
     parser.read(filename)
  
+    print(filename)
     # get section, default to mysql
     db = {}
     if parser.has_section(section):
