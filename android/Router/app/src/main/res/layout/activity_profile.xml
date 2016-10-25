@@ -87,10 +87,9 @@
         android:ems="10"
         android:id="@+id/usernameET"
         android:layout_alignTop="@+id/textView5"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
         android:id="@+id/DistanceUnitsButton_Miles"
         android:layout_below="@+id/DistanceUnitsText"
-        android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/ProfilePrivacyText" />
 
     <Button
@@ -102,18 +101,22 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/ProfilePrivacyText" />
 
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="Phil"
         android:ems="10"
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         android:id="@+id/passwordET"
         android:layout_alignTop="@+id/textView8"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp" />
 =======
+=======
+>>>>>>> Stashed changes
         android:layout_above="@+id/EmailText"
         android:layout_marginBottom="18dp"
         android:id="@+id/UsernameEditText"
@@ -121,7 +124,10 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/UsernameText"
         android:textSize="18sp" />
+<<<<<<< Updated upstream
 >>>>>>> b087c5ad56f8795d4755939e3c4312ed735fedc1
+=======
+>>>>>>> Stashed changes
 
     <EditText
         android:layout_width="wrap_content"
@@ -142,16 +148,22 @@
         android:layout_height="match_parent"
         android:inputType="textEmailAddress"
         android:ems="10"
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         android:id="@+id/editText3"
         android:layout_above="@+id/usernameET"
         android:layout_centerHorizontal="true" />
 =======
+=======
+>>>>>>> Stashed changes
         android:id="@+id/ProfileBioEditText"
         android:text="Bio info here."
         android:layout_alignParentStart="true"
         android:textSize="18sp"
         android:layout_below="@+id/ProfileBioText" />
+<<<<<<< Updated upstream
 >>>>>>> b087c5ad56f8795d4755939e3c4312ed735fedc1
+=======
+>>>>>>> Stashed changes
 
 </RelativeLayout>
