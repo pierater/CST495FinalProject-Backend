@@ -22,7 +22,7 @@ public class DebugPage extends AppCompatActivity {
     }
 
     public void openRecordActivity(View view) {
-        Intent intent = new Intent(this, Record.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
