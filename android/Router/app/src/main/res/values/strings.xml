@@ -4,4 +4,5 @@
     <string name="title_activity_record">Record</string>
     <string name="search_title">search</string>
     <string name="search_button_text">Searching</string>
+    <string name="title_activity_main">Map</string>
 </resources>
