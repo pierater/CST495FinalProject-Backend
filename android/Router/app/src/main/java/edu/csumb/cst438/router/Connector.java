@@ -62,5 +62,5 @@ public class Connector {
         dbUtil = SQLiteHelper.DeBra.getInstance();
     }
 
-    
+
 }

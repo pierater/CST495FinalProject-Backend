@@ -91,6 +91,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             Log.d(TAG, "signed in: success");
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
 
         } else {
             Log.d(TAG, "signed in: failed");
