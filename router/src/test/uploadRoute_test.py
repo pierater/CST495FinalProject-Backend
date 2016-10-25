@@ -20,6 +20,11 @@ def test_uploadRoute():
     response = uploadRoute.uploadRoute(userID, startingPointLat, startingPointLon, routeName, path)
     assert (response == correctResponse)
 
+def test_badUpload():
+    correctResponse = '"{status: failure}"'
+
+    response = uploadRoute.uploadRoute(userID, startingPointLat, startingPointLon,None, None)
+    assert (response == correctResponse)
 '''
 def test_routeUploaded():
 
