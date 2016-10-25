@@ -1,4 +1,4 @@
-#!/bin/env python3.5
+#!/bin/env python3.4
 import sys
 import unittest
 sys.path.append('.')
