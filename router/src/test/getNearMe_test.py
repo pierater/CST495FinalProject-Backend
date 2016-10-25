@@ -28,20 +28,17 @@ class TestGetNearMe():
 	routeName2 = "route2"
 
 	def test_getNearMe(self):
-		try:
-			response = json.loads(getNearMe.getNearMe(self.userLat, self.userLon, self.dist))
-			assert response[0]['idroutes'] != self.routeId2
-			assert response[0]['idroutes'] == self.routeId1
-		except:
-			print("Darn CircleCI")
+		response = json.loads(getNearMe.getNearMe(self.userLat, self.userLon, self.dist))
+		assert response[0]['idroutes'] != self.routeId2
+		assert response[0]['idroutes'] == self.routeId1
 			
 	def test_getNearMeNoMatch(self):
-		try:
-			response = json.loads(getNearMe.getNearMe(self.startPointLatNoMatch, self.startPointLonNoMatch, self.dist))
-			assert response[0]['idroutes'] != self.routeId2
-			assert response[0]['idroutes'] != self.routeId1
-		except:
-			print("Darn CircleCI")
+		response = json.loads(getNearMe.getNearMe(self.startPointLatNoMatch, self.startPointLonNoMatch, self.dist))
+		assert len(response) == 0
+			
+	def test_getNearMeMultiMatch(self):
+		response = json.loads(getNearMe.getNearMe(self.userLat, self.userLon, 410000))
+		assert len(response) > 1
 
 	def setup_method(self):
 		try:

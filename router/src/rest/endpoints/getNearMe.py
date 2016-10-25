@@ -22,7 +22,7 @@ def getNearMe(userLat = None, userLon = None, dist = None):
 	query = "SELECT idroutes, route, ( 3959 * acos( cos( radians(" + userLat
 	query += " ) ) * cos( radians( startPointLat ) ) * cos( radians( startPointLon ) - radians(" + userLon
 	query += " ) ) + sin( radians(" + userLat + ") ) * sin( radians( startPointLat ) ) ) ) "
-	query += "AS distance FROM routes HAVING distance < 25 ORDER BY distance LIMIT 0 , 20" 
+	query += "AS distance FROM routes HAVING distance < " + str(dist) + " ORDER BY distance LIMIT 0 , 20" 
 	
 	'''
 	~ routes Table ~
