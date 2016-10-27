@@ -15,3 +15,8 @@ notify:
 database:
     override:
         - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema_test.sql
+deployment:
+    production:
+        branch: master
+        commands:
+            - eb deploy --staged

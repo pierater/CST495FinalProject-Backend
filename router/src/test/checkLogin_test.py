@@ -2,6 +2,7 @@
 from . import preTest
 import checkLogin
 import dbconnect
+import codes
 
 '''
 Author: Martin Almaraz
@@ -13,22 +14,19 @@ username = 'martin'
 password = 'password'
 
 def test_checkLogin():
-    correctResponse = '"{status: success}"'
     
-    assert checkLogin.checkLogin(username, password) == correctResponse
+    assert checkLogin.checkLogin(username, password) == codes.JSON_SUCCESS
 
 def test_checkLogin_wrong_pass():
-    correctResponse = '"{status: failure}"'
 
-    assert checkLogin.checkLogin(username, 'badPass') == correctResponse
+    assert checkLogin.checkLogin(username, 'badPass') == codes.JSON_FAILURE
 
 def test_checkLogin_wrong_username():
-    correctResponse = '"{status: failure}"'
 
-    assert checkLogin.checkLogin('badUser', password) == correctResponse
+    assert checkLogin.checkLogin('badUser', password) == codes.JSON_FAILURE
 
 def setup_function():
-    dbconnect.insert_data_users(username, "bio", password)
+    dbconnect.insert_data_users(username, "bio", password, "email")
 
 def teardown_function():
     dbconnect.delete_data('users', 'username', username)

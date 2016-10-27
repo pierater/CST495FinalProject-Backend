@@ -13,10 +13,11 @@ dbConfigs = ['./src/rest/dbUtil/config_test.ini', './src/rest/dbUtil/config.ini'
 # PARAM2: bio value
 # PARAM3: passwd (NOT HASHED IN FUNCTION)
 # Returns new user's id
-def insert_data_users(username,bio,passwd):
-    query = "INSERT INTO users(idusers,username,bio,pass) " \
-        "VALUES(NULL,%s,%s,%s)"
-    args = (username, bio, passwd)
+def insert_data_users(username,bio,passwd,email):
+    if( len(get_field("idusers", "users", "username", username)) > 0): return -1
+    query = "INSERT INTO users(idusers,username,bio,pass,email) " \
+        "VALUES(NULL,%s,%s,%s,%s)"
+    args = (username, bio, passwd, email)
     error = __change_data(query,args)
     userid = get_field("idusers","users","username",username)
     return userid[0]['idusers']
