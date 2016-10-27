@@ -168,13 +168,15 @@ public class Connector {
         return result;
     }
 
-    public int createUser(String username, String password) {
+    public int createUser(String username, String password, String bio, String email) {
         password = sha1(password);
         String json = "";
         try {
             json = (new JSONObject()
                     .put("username", username)
-                    .put("password", password)).toString();
+                    .put("password", password)
+                    .put("bio", bio)
+                    .put("email", email)).toString();
         }
         catch (Exception e) {
             Log.d("error", e.toString());
@@ -182,7 +184,7 @@ public class Connector {
 
         try {
             JSONObject response = new JSONObject(getResponse(json.toString(), createUser));
-            return Integer.parseInt((response.get("userid").toString()));
+            return Integer.parseInt((response.get("userId").toString()));
         }
         catch (Exception e) {
             Log.e("error", e.toString());

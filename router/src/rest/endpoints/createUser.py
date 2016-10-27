@@ -13,8 +13,11 @@ createUserBlueprint = Blueprint('createUser', __name__, template_folder='templat
 def createUser(username = None, password = None, bio = None):
 
     if username is None:
-        username = request.form['username']
-        password = request.form['password']
-        bio = request.form['bio']
-    userid = dbconnect.insert_data_users(username,bio,password)
-    return json.dumps('{userid: %s}') % userid
+        username = request.json['username']
+        password = request.json['password']
+        bio = request.json['bio']
+        email = request.json['email']
+    userid = dbconnect.insert_data_users(username,bio,password,email)
+    payload = {}
+    payload['userId'] = userid
+    return json.dumps(payload)

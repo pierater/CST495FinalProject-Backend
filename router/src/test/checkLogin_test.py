@@ -26,7 +26,7 @@ def test_checkLogin_wrong_username():
     assert checkLogin.checkLogin('badUser', password) == codes.JSON_FAILURE
 
 def setup_function():
-    dbconnect.insert_data_users(username, "bio", password)
+    dbconnect.insert_data_users(username, "bio", password, "email")
 
 def teardown_function():
     dbconnect.delete_data('users', 'username', username)

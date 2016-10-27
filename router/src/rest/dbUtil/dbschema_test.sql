@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS circle_test.users(
 	username VARCHAR(45) NOT NULL, 
 	bio VARCHAR(400) NULL, 
 	pass VARCHAR(40) NOT NULL, 
+    email VARCHAR(40) NOT NULL,
 	PRIMARY KEY (idusers), 
 	UNIQUE INDEX idusers_UNIQUE (idusers ASC), 
 	UNIQUE INDEX username_UNIQUE (username ASC)) ENGINE = InnoDB;
