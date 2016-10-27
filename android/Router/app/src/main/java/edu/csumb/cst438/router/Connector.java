@@ -9,6 +9,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Created by pico on 10/15/16.
@@ -60,14 +63,18 @@ public class Connector {
             os.write(json.getBytes());
             os.flush();
 
-            if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
+            if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed to connect: Code " + conn.getResponseCode());
             }
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String response = "";
-            while ((response += br.readLine()) != null)
-                ; // will keep appending the json response to response var
+            String temp = "";
+            while ((temp = br.readLine()) != null)
+            {
+                response += temp;
+            }
+                // will keep appending the json response to response var
 
             conn.disconnect();
             return response;
@@ -83,6 +90,81 @@ public class Connector {
         for(int i = 0; i < item.length(); i++) {
             result += Integer.toString((b[i] & 0xff) + 0x100, 16).substring(1);
         }
+        return result;
+    }
+
+    /*
+    public int uploadRoute(int userId, String lat, String lon, String name, String path) {
+        String json = "";
+
+        try {
+            String route = (new JSONObject()
+                            .put("startingPoint"))
+            json = (new JSONObject()
+                    .put("route", new JSONObject()))
+        }
+    }
+    */
+
+    public ArrayList<HashMap<String, String>> getNearMe(String lat, String lon, double distance) {
+        ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
+        String json = "";
+
+        try {
+            json = (new JSONObject()
+                    .put("userLat", lat.toString())
+                    .put("userLon", lon.toString())
+                    .put("dist", Double.toString(distance))).toString();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
+        try {
+            JSONObject response = new JSONObject(getResponse(json.toString(), getNearMe));
+
+            for(int i = 0; i < response.length(); i++) {
+                HashMap<String, String> temp = new HashMap<>();
+                Iterator<?> keys = response.keys();
+
+                while(keys.hasNext()) {
+                    String key = keys.next().toString();
+                    temp.put(key, response.get(key).toString());
+                }
+                result.add(temp);
+            }
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
+        return result;
+    }
+
+    public HashMap<String, String> downloadRoute(int routeId) {
+        HashMap<String, String> result = new HashMap<>();
+        String json = "";
+        try {
+            json = (new JSONObject()
+                    .put("routeId", Integer.toString(routeId))).toString();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
+        try {
+            JSONObject response = new JSONObject(getResponse(json.toString(), downloadRoute));
+            Iterator<?> keys = response.keys();
+
+            while(keys.hasNext()) {
+                String key = keys.next().toString();
+                result.put(key, response.get(key).toString());
+            }
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
         return result;
     }
 
@@ -122,7 +204,7 @@ public class Connector {
 
         try {
             JSONObject response = new JSONObject(getResponse(json.toString(), checkLogin));
-            if(response.get("status") == "success") {
+            if(response.get("status").toString().equals("success")) {
                 return true;
             }
             return false;
@@ -130,7 +212,6 @@ public class Connector {
         catch (Exception e) {
             Log.e("error", e.toString());
         }
-
         return false;
 
     }

@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
+    private Connector connector = new Connector();
 
 
     @Override
@@ -109,8 +110,18 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
 
-    public void authenticateLogin(String username, String password) {
-        // CALL TO API TO CHECK IF LOGIN WAS VALID
+    public void logIn(View view) {
+        authenticateLogin(findViewById(R.id.username_to_login).toString(), findViewById(R.id.password_to_login).toString());
+    }
+
+    public void authenticateLogin(final String username, final String password) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean result = connector.checkLogin(username, password);
+                Log.d("login", Boolean.toString(result));            }
+        }).start();
 
     }
 
