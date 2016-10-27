@@ -184,7 +184,7 @@ public class Connector {
 
         try {
             JSONObject response = new JSONObject(getResponse(json.toString(), createUser));
-            return Integer.parseInt((response.get("userid").toString()));
+            return Integer.parseInt((response.get("userId").toString()));
         }
         catch (Exception e) {
             Log.e("error", e.toString());

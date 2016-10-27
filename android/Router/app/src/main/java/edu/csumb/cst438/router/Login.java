@@ -115,15 +115,17 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     public void authenticateLogin(final String username, final String password) {
-        createUser("username", "pass123", "mybio", "email@mail.com");
-        /*
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 boolean result = connector.checkLogin(username, password);
-                Log.d("login", Boolean.toString(result));            }
+                //int result = connector.createUser("username", "pass123", "mybio", "email@mail.com");
+                //Log.d("create", Integer.toString(result));
+                Log.d("login", Boolean.toString(result));
+            }
         }).start();
-        */
+
 
     }
 
