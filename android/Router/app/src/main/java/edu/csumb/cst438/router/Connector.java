@@ -93,18 +93,46 @@ public class Connector {
         return result;
     }
 
-    /*
+
     public int uploadRoute(int userId, String lat, String lon, String name, String path) {
+        HashMap<String, String> result = new HashMap<String, String>();
         String json = "";
 
         try {
-            String route = (new JSONObject()
-                            .put("startingPoint"))
             json = (new JSONObject()
-                    .put("route", new JSONObject()))
+                    .put("userId", Integer.toString(userId))
+                    .put("route", (new JSONObject()
+                                .put("name", name)
+                                .put("path", path)
+                                .put("startingPoint", new JSONObject()
+                                                    .put("lat", lat)
+                                                    .put("lon", lon))))).toString();
         }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
+        try {
+            JSONObject response = new JSONObject(getResponse(json.toString(), uploadRoute));
+            Iterator<?> keys = response.keys();
+
+            while(keys.hasNext()) {
+                String key = keys.next().toString();
+                result.put(key, response.get(key).toString());
+            }
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        try {
+            return Integer.parseInt(result.get("idroutes"));
+        }
+        catch (Exception e) {
+            return -1;
+        }
+
     }
-    */
+
 
     public ArrayList<HashMap<String, String>> getNearMe(String lat, String lon, double distance) {
         ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();

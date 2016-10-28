@@ -39,5 +39,5 @@ class TestdownloadRoute_endpoints():
 			print("Darn CircleCI")
 			
 	def teardown_method(self):
-		dbconnect.delete_data('routes', 'idroutes', self.routeId)
+		dbconnect.delete_data('routes', 'userId', self.userId)
 
