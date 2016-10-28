@@ -2,9 +2,9 @@ package edu.csumb.cst438.router;
 
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
     private static final String TAG = "SignInActivity";
@@ -117,15 +120,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     public void authenticateLogin(final String username, final String password) {
-        createUser("username", "pass123", "mybio", "email@mail.com");
-        /*
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                boolean result = connector.checkLogin(username, password);
-                Log.d("login", Boolean.toString(result));            }
-        }).start();
-        */
 
     }
 
@@ -137,6 +131,14 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 Log.d("create", Integer.toString(userId));
             }
         }).run();
+
+        ArrayList<HashMap<String, String>> result = connector.getNearMe("36.65", "-121.8", 10);
+        Log.d("nearby", result.toString());
+    }
+
+    public void createUser(final String username, final String password, final String bio, final String email) {
+            int userId = connector.createUser(username, password, bio, email);
+            Log.d("create", Integer.toString(userId));
     }
 
     private void setupVariables() {

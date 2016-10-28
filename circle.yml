@@ -3,11 +3,17 @@ machine:
         version: 3.5.2
 general:
     build_dir: router
+dependencies:
+    pre:
+        - sudo apt-get install python-dev
+        - sudo pip2 install awsebcli
 test:
     override:
+        - bash CIRCLE
         - mkdir -p $CIRCLE_TEST_REPORTS/reports/
         - py.test --junitxml=$CIRCLE_TEST_REPORTS/reports/test_result.xml
     post:
+        - bash AWS
         - bash <(curl -s https://codecov.io/bash)
 notify:
     webhooks:
@@ -19,4 +25,5 @@ deployment:
     production:
         branch: master
         commands:
+            - bash AWS
             - eb deploy --staged

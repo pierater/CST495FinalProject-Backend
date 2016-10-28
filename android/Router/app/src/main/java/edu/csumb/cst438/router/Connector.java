@@ -29,6 +29,8 @@ public class Connector {
     static String createUser = "/createUser/";
     static String getNearMe = "/getNearMe/";
 
+    Object result = null;
+
 
     public Connector() {
         dbUtil = SQLiteHelper.DeBra.getInstance();
@@ -39,6 +41,64 @@ public class Connector {
         catch (Exception e) {
             Log.e("error", e.toString());
         }
+    }
+
+    public HashMap<String, String> downloadRoute(final int routeId) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                result = downloadRoute(routeId);
+            }
+        }).start();
+        return (HashMap<String, String>)result;
+    }
+
+    public int createUser(final String username, final String password, final String bio, final String email) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                result = createUser_internal(username, password, bio, email);
+            }
+        }).start();
+        return (int)result;
+    }
+
+    public int uploadRoute(final int userId, final String lat, final String lon, final String name, final String path) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                result = uploadRoute_intenal(userId, lat, lon, name, path);
+            }
+        }).start();
+        return (int)result;
+    }
+
+    public ArrayList<HashMap<String, String>> getNearMe(final String lat, final String lon, final double distance) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                result = getNearMe_internal(lat, lon, distance);
+            }
+        }).start();
+
+        return(ArrayList<HashMap<String, String>>)result;
+    }
+
+    public boolean checkLogin(final String username, final String password) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                result = checkLogin_internal(username, password);
+            }
+        }).start();
+
+        return (boolean)result;
+
     }
 
     private HttpURLConnection buildConnection(String endpoint) {
@@ -93,20 +153,48 @@ public class Connector {
         return result;
     }
 
-    /*
-    public int uploadRoute(int userId, String lat, String lon, String name, String path) {
+
+    private int uploadRoute_intenal(int userId, String lat, String lon, String name, String path) {
+        HashMap<String, String> result = new HashMap<String, String>();
         String json = "";
 
         try {
-            String route = (new JSONObject()
-                            .put("startingPoint"))
             json = (new JSONObject()
-                    .put("route", new JSONObject()))
+                    .put("userId", Integer.toString(userId))
+                    .put("route", (new JSONObject()
+                                .put("name", name)
+                                .put("path", path)
+                                .put("startingPoint", new JSONObject()
+                                                    .put("lat", lat)
+                                                    .put("lon", lon))))).toString();
         }
-    }
-    */
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
 
-    public ArrayList<HashMap<String, String>> getNearMe(String lat, String lon, double distance) {
+        try {
+            JSONObject response = new JSONObject(getResponse(json.toString(), uploadRoute));
+            Iterator<?> keys = response.keys();
+
+            while(keys.hasNext()) {
+                String key = keys.next().toString();
+                result.put(key, response.get(key).toString());
+            }
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        try {
+            return Integer.parseInt(result.get("idroutes"));
+        }
+        catch (Exception e) {
+            return -1;
+        }
+
+    }
+
+
+    private ArrayList<HashMap<String, String>> getNearMe_internal(String lat, String lon, double distance) {
         ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
         String json = "";
 
@@ -141,7 +229,7 @@ public class Connector {
         return result;
     }
 
-    public HashMap<String, String> downloadRoute(int routeId) {
+    private HashMap<String, String> downloadRoute_internal(int routeId) {
         HashMap<String, String> result = new HashMap<>();
         String json = "";
         try {
@@ -168,7 +256,7 @@ public class Connector {
         return result;
     }
 
-    public int createUser(String username, String password, String bio, String email) {
+    private int createUser_internal(String username, String password, String bio, String email) {
         password = sha1(password);
         String json = "";
         try {
@@ -184,7 +272,7 @@ public class Connector {
 
         try {
             JSONObject response = new JSONObject(getResponse(json.toString(), createUser));
-            return Integer.parseInt((response.get("userid").toString()));
+            return Integer.parseInt((response.get("userId").toString()));
         }
         catch (Exception e) {
             Log.e("error", e.toString());
@@ -192,7 +280,7 @@ public class Connector {
         return -1;
     }
 
-    public Boolean checkLogin(String username, String password) {
+    private Boolean checkLogin_internal(String username, String password) {
         password = sha1(password);
         String json = "";
         try {
