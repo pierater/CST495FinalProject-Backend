@@ -1,3 +1,7 @@
 {
-  "router/src/test/checkLogin_test.py": true
+  "router/src/test/checkLogin_test.py": true,
+  "router/src/test/createUser_test.py": true,
+  "router/src/test/downloadRoute_test.py": true,
+  "router/src/test/getNearMe_test.py": true,
+  "router/src/test/uploadRoute_test.py": true
 }

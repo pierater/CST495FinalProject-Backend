@@ -119,10 +119,12 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         new Thread(new Runnable() {
             @Override
             public void run() {
-                boolean result = connector.checkLogin(username, password);
+                //boolean result = connector.checkLogin(username, password);
                 //int result = connector.createUser("username", "pass123", "mybio", "email@mail.com");
+                int result = connector.uploadRoute(1, "lattitude", "longitude", "AWSOME ROUTE1", "just making sure");
+                Log.d("upload", Integer.toString(result));
                 //Log.d("create", Integer.toString(result));
-                Log.d("login", Boolean.toString(result));
+                //Log.d("login", Boolean.toString(result));
             }
         }).start();
 

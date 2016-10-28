@@ -5,9 +5,11 @@ general:
     build_dir: router
 test:
     override:
+        - bash CIRCLE
         - mkdir -p $CIRCLE_TEST_REPORTS/reports/
         - py.test --junitxml=$CIRCLE_TEST_REPORTS/reports/test_result.xml
     post:
+        - bash AWS
         - bash <(curl -s https://codecov.io/bash)
 notify:
     webhooks:
@@ -19,4 +21,5 @@ deployment:
     production:
         branch: master
         commands:
+            - bash AWS
             - eb deploy --staged
