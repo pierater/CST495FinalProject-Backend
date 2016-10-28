@@ -5,6 +5,7 @@ general:
     build_dir: router
 dependencies:
     pre:
+        - sudo apt-get install python-dev
         - sudo pip2 install awsebcli
 test:
     override:
