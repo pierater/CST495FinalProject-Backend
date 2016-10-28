@@ -18,6 +18,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.HashMap;
+
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -121,8 +123,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             public void run() {
                 //boolean result = connector.checkLogin(username, password);
                 //int result = connector.createUser("username", "pass123", "mybio", "email@mail.com");
-                int result = connector.uploadRoute(1, "lattitude", "longitude", "AWSOME ROUTE1", "just making sure");
-                Log.d("upload", Integer.toString(result));
+                //int result = connector.uploadRoute(1, "lattitude", "longitude", "AWSOME ROUTE1", "just making sure");
+                HashMap<String, String> result = connector.downloadRoute(174);
+                Log.d("download", result.toString());
+                //Log.d("upload", Integer.toString(result));
                 //Log.d("create", Integer.toString(result));
                 //Log.d("login", Boolean.toString(result));
             }

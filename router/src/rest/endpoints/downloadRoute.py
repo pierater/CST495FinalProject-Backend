@@ -13,7 +13,7 @@ downloadRouteBlueprint = Blueprint('router', __name__, template_folder='template
 def downloadRoute(routeId = None):
 
     if routeId is None:
-        routeId = request.form['routeId']
+        routeId = request.json['routeId']
 
     query = "SELECT * FROM `routes` WHERE `idroutes` = %s"
     cursor = dbconnect.__change_data(query, (routeId,))
