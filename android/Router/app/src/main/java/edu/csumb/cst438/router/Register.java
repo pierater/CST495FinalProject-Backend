@@ -30,13 +30,15 @@ public class Register extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         setupVariables();
 
+        // If they already have an account they can choose to login
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToLogin();
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
             }
         });
 
@@ -60,19 +62,14 @@ public class Register extends AppCompatActivity{
 
     }
 
-    private void moveToLogin() {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-    }
-
-
     public void createUser(final String username, final String password, final String bio, final String email) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 int userId = connector.createUser(username, password, bio, email);
+                Log.d(TAG, " createUser: " + Integer.toString(userId));
             }
-        }
+        });
     }
 
     private void setupVariables() {

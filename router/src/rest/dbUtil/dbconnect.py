@@ -6,17 +6,22 @@
 from mysql.connector import MySQLConnection, Error, errorcode
 from python_mysql_dbconfig import read_db_config
 
-dbConfigs = ['./src/rest/dbUtil/config_test.ini', './src/rest/dbUtil/config.ini', './src/rest/dbUtil/configAWS.ini']
+AWS = './src/rest/dbUtil/configAWS.ini'
+CIRCLE = './src/rest/dbUtil/config_test.ini'
+LOCAL = './src/rest/dbUtil/config.ini'
+
+dbConfig=CIRCLE
 
 # Inserting data to Users Table
 # PARAM1: username value
 # PARAM2: bio value
 # PARAM3: passwd (NOT HASHED IN FUNCTION)
 # Returns new user's id
-def insert_data_users(username,bio,passwd):
-    query = "INSERT INTO users(idusers,username,bio,pass) " \
-        "VALUES(NULL,%s,%s,%s)"
-    args = (username, bio, passwd)
+def insert_data_users(username,bio,passwd,email):
+    if( len(get_field("idusers", "users", "username", username)) > 0): return -1
+    query = "INSERT INTO users(idusers,username,bio,pass,email) " \
+        "VALUES(NULL,%s,%s,%s,%s)"
+    args = (username, bio, passwd, email)
     error = __change_data(query,args)
     userid = get_field("idusers","users","username",username)
     return userid[0]['idusers']
@@ -27,6 +32,8 @@ def insert_data_users(username,bio,passwd):
 # PARAM3: route start point longitude
 # PARAM4: userid value, user that the route belongs to
 def insert_data_routes(route,startPointLat,startPointLon,userid,routeName):
+    if( len(get_field("idroutes", "routes", "route", route)) > 0): return -1
+
     query = "INSERT INTO routes(route,startPointLat,startPointLon,userid,routeName) " \
         "VALUES(%s,%s,%s,%s,%s)"
     args = (route, startPointLat, startPointLon, userid, routeName)
@@ -57,41 +64,37 @@ def delete_data(tablename, wherefield, condition):
 
 # Connects to database and processes the query
 def __change_data(query,args):
-    for config in dbConfigs:
+    try:
+        db_config = read_db_config(dbConfig)
+        conn = MySQLConnection(**db_config)
+        cursor = conn.cursor(buffered=True, dictionary=True)
+        cursor.execute(query, args)
         try:
-            db_config = read_db_config(config)
-            conn = MySQLConnection(**db_config)
-            cursor = conn.cursor(buffered=True, dictionary=True)
-            cursor.execute(query, args)
-            try:
-                conn.commit()
-                return cursor.fetchall()
-            except Error as error:
-                if error.errno == errorcode.ER_DUP_ENTRY:
-                    return None
-                print(error)
+            conn.commit()
+            return cursor.fetchall()
         except Error as error:
+            if error.errno == errorcode.ER_DUP_ENTRY:
+                return None
             print(error)
-            continue
+    except Error as error:
+        print(error)
 ################ TESTING ##################
 # USED FOR TESTING
 def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
 
-    for config in dbConfigs:
-        try:
-            db_config = read_db_config(config)
-            conn = MySQLConnection(**db_config)
-            cursor = conn.cursor(dictionary=True)
-            
-            query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
-            args = (fieldvaluecondition,)
-            cursor.execute(query,args)
-            
-            row = cursor.fetchall()
-            return row
-        except Error as error:
-            print(error)
-            continue
+    try:
+        db_config = read_db_config(dbConfig)
+        conn = MySQLConnection(**db_config)
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
+        args = (fieldvaluecondition,)
+        cursor.execute(query,args)
+        
+        row = cursor.fetchall()
+        return row
+    except Error as error:
+        print(error)
     
 def testInsert():
     insert_data_users("user123", "bioInfo","pw098")

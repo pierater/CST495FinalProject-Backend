@@ -2,9 +2,9 @@ package edu.csumb.cst438.router;
 
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +17,9 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -24,6 +27,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText username_to_login;
     private EditText password_to_login;
     private Button login_button;
+    private Button register_button;
     private SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
     private Connector connector = new Connector();
@@ -67,7 +71,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               signIn();
+                signIn();
+            }
+        });
+
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Register.class);
+                startActivity(intent);
             }
         });
     }
@@ -94,8 +106,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         }
     }
 
-
-
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -115,11 +125,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     public void logIn(View view) {
-        authenticateLogin(findViewById(R.id.username_to_login).toString(), findViewById(R.id.password_to_login).toString());
+        connector.checkLogin(username_to_login.toString(), password_to_login.toString());
     }
 
     public void authenticateLogin(final String username, final String password) {
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -137,5 +146,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         password_to_login = (EditText) findViewById(R.id.password_to_login);
         login_button = (Button) findViewById(R.id.login_button);
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        register_button = (Button) findViewById(R.id.registration_button);
     }
 }
