@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -27,7 +26,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private Button login_button;
     private SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
-    private TextView mStatusTextView;
     private Connector connector = new Connector();
 
 
@@ -74,7 +72,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         });
     }
 
-    // [START onActivityResult]
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -85,18 +83,18 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             handleSignInResult(result);
         }
     }
-    // [END onActivityResult]
 
-    // [START handleSignInResult]
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             Log.d(TAG, "signed in: success");
-
+            moveToMain();
         } else {
             Log.d(TAG, "signed in: failed");
         }
     }
+
+
 
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -110,6 +108,12 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
 
+    // Whenever a login succeeds it moves to the main activity
+    private void moveToMain(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void logIn(View view) {
         authenticateLogin(findViewById(R.id.username_to_login).toString(), findViewById(R.id.password_to_login).toString());
     }
@@ -120,9 +124,12 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             @Override
             public void run() {
                 boolean result = connector.checkLogin(username, password);
-                Log.d("login", Boolean.toString(result));            }
+                Log.d(TAG, Boolean.toString(result));
+                if (result == true) {
+                    moveToMain();
+                }
+            }
         }).start();
-
     }
 
     private void setupVariables() {
@@ -130,9 +137,5 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         password_to_login = (EditText) findViewById(R.id.password_to_login);
         login_button = (Button) findViewById(R.id.login_button);
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-    }
-
-    public void sendCreds() {
-
     }
 }
