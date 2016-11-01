@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText username_to_login;
     private EditText password_to_login;
     private Button login_button;
+    private Button register_button;
     private SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
@@ -75,6 +76,14 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                signIn();
             }
         });
+        
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Register.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // [START onActivityResult]
@@ -95,6 +104,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             Log.d(TAG, "signed in: success");
+            moveToMain();
 
         } else {
             Log.d(TAG, "signed in: failed");
@@ -113,29 +123,34 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
 
+    // Whenever a login succeeds it moves to the main activity
+    private void moveToMain(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void logIn(View view) {
         connector.checkLogin(username_to_login.toString(), password_to_login.toString());
     }
 
     public void authenticateLogin(final String username, final String password) {
-
-        ArrayList<HashMap<String, String>> result = connector.getNearMe("36.65", "-121.8", 10);
-        Log.d("nearby", result.toString());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean result = connector.checkLogin(username, password);
+                Log.d(TAG, Boolean.toString(result));
+                if (result == true) {
+                    moveToMain();
+                }
+            }
+        }).start();
     }
-
-    public void createUser(final String username, final String password, final String bio, final String email) {
-            int userId = connector.createUser(username, password, bio, email);
-            Log.d("create", Integer.toString(userId));
-    }
-
+    
     private void setupVariables() {
         username_to_login = (EditText) findViewById(R.id.username_to_login);
         password_to_login = (EditText) findViewById(R.id.password_to_login);
         login_button = (Button) findViewById(R.id.login_button);
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-    }
-
-    public void sendCreds() {
-
+        register_button = (Button) findViewById(R.id.registration_button);
     }
 }
