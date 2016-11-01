@@ -2,6 +2,7 @@ package edu.csumb.cst438.router;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -12,6 +13,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * Created by pico on 10/15/16.
@@ -28,6 +33,7 @@ public class Connector {
     static String uploadRoute = "/uploadRoute/";
     static String createUser = "/createUser/";
     static String getNearMe = "/getNearMe/";
+    static ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     Object result = null;
 
@@ -45,59 +51,98 @@ public class Connector {
 
     public HashMap<String, String> downloadRoute(final int routeId) {
 
-        new Thread(new Runnable() {
+        Callable<HashMap<String, String>> callable = new Callable<HashMap<String, String>>() {
             @Override
-            public void run() {
-                result = downloadRoute(routeId);
+            public HashMap<String, String> call() throws Exception {
+                return downloadRoute_internal(routeId);
             }
-        }).start();
-        return (HashMap<String, String>)result;
+        };
+        Future<HashMap<String, String>> future = executorService.submit(callable);
+        executorService.shutdown();
+        try {
+            return future.get();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        return null;
     }
 
     public int createUser(final String username, final String password, final String bio, final String email) {
 
-        new Thread(new Runnable() {
+        Callable<Integer> callable = new Callable<Integer>() {
             @Override
-            public void run() {
-                result = createUser_internal(username, password, bio, email);
+            public Integer call() throws Exception {
+                return createUser_internal(username, password, bio, email);
             }
-        }).start();
-        return (int)result;
+        };
+        Future<Integer> future = executorService.submit(callable);
+        executorService.shutdown();
+        try {
+            return future.get();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        return -1;
     }
 
     public int uploadRoute(final int userId, final String lat, final String lon, final String name, final String path) {
 
-        new Thread(new Runnable() {
+        Callable<Integer> callable = new Callable<Integer>() {
             @Override
-            public void run() {
-                result = uploadRoute_intenal(userId, lat, lon, name, path);
+            public Integer call() throws Exception {
+                return uploadRoute_intenal(userId, lat, lon, name, path);
             }
-        }).start();
-        return (int)result;
+        };
+        Future<Integer> future = executorService.submit(callable);
+        executorService.shutdown();
+        try {
+            return future.get();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        return -1;
     }
 
     public ArrayList<HashMap<String, String>> getNearMe(final String lat, final String lon, final double distance) {
 
-        new Thread(new Runnable() {
+        Callable<ArrayList<HashMap<String, String>>> callable = new Callable<ArrayList<HashMap<String, String>>>() {
             @Override
-            public void run() {
-                result = getNearMe_internal(lat, lon, distance);
+            public ArrayList<HashMap<String, String>> call() throws Exception {
+                return getNearMe_internal(lat, lon, distance);
             }
-        }).start();
+        };
 
-        return(ArrayList<HashMap<String, String>>)result;
+        Future<ArrayList<HashMap<String, String>>> future = executorService.submit(callable);
+        executorService.shutdown();
+        try {
+            return future.get();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        return null;
     }
 
     public boolean checkLogin(final String username, final String password) {
 
-        new Thread(new Runnable() {
+        Callable<Boolean> callable = new Callable<Boolean>() {
             @Override
-            public void run() {
-                result = checkLogin_internal(username, password);
+            public Boolean call() throws Exception {
+                return checkLogin_internal(username, password);
             }
-        }).start();
-
-        return (boolean)result;
+        };
+        Future<Boolean> future = executorService.submit(callable);
+        executorService.shutdown();
+        try {
+            return future.get();
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        return false;
 
     }
 
@@ -209,15 +254,16 @@ public class Connector {
         }
 
         try {
-            JSONObject response = new JSONObject(getResponse(json.toString(), getNearMe));
+            JSONArray response = new JSONArray(getResponse(json.toString(), getNearMe));
 
             for(int i = 0; i < response.length(); i++) {
                 HashMap<String, String> temp = new HashMap<>();
-                Iterator<?> keys = response.keys();
+                JSONObject item = (JSONObject)response.get(i);
+                Iterator<?> keys = item.keys();
 
                 while(keys.hasNext()) {
                     String key = keys.next().toString();
-                    temp.put(key, response.get(key).toString());
+                    temp.put(key, item.get(key).toString());
                 }
                 result.add(temp);
             }
