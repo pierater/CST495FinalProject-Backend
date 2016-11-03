@@ -57,8 +57,24 @@ public class SQLiteHelper {
                 Routes.COLLUMN_NAME_ROUTE_NAME + TEXT_STYPE + COMMA_SEP +
                 Routes.COLLUMN_NAME_USER_ID + TEXT_STYPE + COMMA_SEP + " )";
 
-    private static final String DELTE_ROUTES =
+    private static final String DELETE_ROUTES =
             "DROP TABLE IF EXISTS " + Routes.TABLE_NAME;
+
+    private static final String INSERT_INTO_ROUTES = "INSERT INTO " + Routes.TABLE_NAME +
+            " (" + Routes.COLLUMN_NAME_ROUTEID + COMMA_SEP + Routes.COLLUMN_NAME_ROUTE +
+            COMMA_SEP + Routes.COLLUMN_NAME_ROUTE_NAME + COMMA_SEP + Routes.COLLUMN_NAME_START_POINT_LAT +
+            COMMA_SEP + Routes.COLLUMN_NAME_START_POINT_LON + COMMA_SEP + Routes.COLLUMN_NAME_USER_ID + ") " +
+            "VALUES ( %s, %s, %s, %s, %s, %s)";
+
+    private static final String UPDATE_USER_SETTINGS = "UPDATE " + UserSettings.TABLE_NAME +
+            " SET %s = %s WHERE 1";
+
+    private static final String INIT_USER_SETTINGS = "INSERT INTO " + UserSettings.TABLE_NAME +
+            " (" + UserSettings.COLLUMN_NAME_USERNAME + COMMA_SEP + UserSettings.COLLUM_NAME_PRIVACY +
+            COMMA_SEP + UserSettings.COLLUMN_NAME_BIO + COMMA_SEP + UserSettings.COLLUMN_NAME_EMAIL + COMMA_SEP +
+            UserSettings.COLLUM_NAME_PRIVACY + ") " + "VALUES (%s, %s, %s, %s)";
+
+    private static final String SELECT_FROM_ROUTES = "SELECT * FROM " + Routes.TABLE_NAME + " WHERE %s = %s";
 
     public static class DeBra extends SQLiteOpenHelper {
         public static final int DATABASE_VERSION = 1;
@@ -74,6 +90,10 @@ public class SQLiteHelper {
             return me;
         }
 
+        public void insertRoute(String routeId, String route, String routeName, String startLat, String startLon, String userId) {
+            return;
+        }
+
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_USER_SETTINGS);
             db.execSQL(CREATE_ROUTES);
@@ -81,7 +101,7 @@ public class SQLiteHelper {
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL(DELETE_USER_SETTINGS);
-            db.execSQL(DELTE_ROUTES);
+            db.execSQL(DELETE_ROUTES);
             onCreate(db);
         }
 

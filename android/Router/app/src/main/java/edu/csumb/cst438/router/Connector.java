@@ -24,7 +24,6 @@ import java.util.concurrent.Future;
 
 public class Connector {
 
-    public SQLiteHelper.DeBra dbUtil;
     URL url;
     HttpURLConnection conn;
     static String AWS = "http://router-dev.us-west-2.elasticbeanstalk.com";
@@ -35,9 +34,7 @@ public class Connector {
     static String getNearMe = "/getNearMe/";
     static ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-
     public Connector() {
-        dbUtil = SQLiteHelper.DeBra.getInstance();
 
         try {
             conn = buildConnection("");
@@ -46,6 +43,7 @@ public class Connector {
             Log.e("error", e.toString());
         }
     }
+
 
     public HashMap<String, String> downloadRoute(final int routeId) {
 

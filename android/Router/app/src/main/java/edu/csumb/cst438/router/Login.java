@@ -18,9 +18,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -31,13 +28,14 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
-    private Connector connector = new Connector();
+    private Connector connector;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        connector = new Connector();
         setupVariables();
         //  Configure sign-in to request the user's ID, email address, and basic profile. ID and
         //  basic profile are included in DEFAULT_SIGN_IN.
@@ -118,9 +116,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     public void authenticateLogin(final String username, final String password) {
-
-        ArrayList<HashMap<String, String>> result = connector.getNearMe("36.65", "-121.8", 10);
-        Log.d("nearby", result.toString());
+        //connector.insertRoute("1", "route", "name", "lat", "lon", "userId");
+        Log.d("route", connector.getRouteById(1).toString());
     }
 
     public void createUser(final String username, final String password, final String bio, final String email) {
