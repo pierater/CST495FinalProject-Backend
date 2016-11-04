@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -25,16 +25,19 @@
             android:layout_height="match_parent"
             tools:context="edu.csumb.cst438.router.MainActivity" />
 
-        <fragment
-            android:name="edu.csumb.cst438.router.SearchBar"
-            android:id="@+id/recordSearchBar"
-            class="edu.csumb.cst438.router.SearchBar"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"/>
-
     </RelativeLayout>
+
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:floatingSearch_searchBarMarginLeft="20dp"
+        app:floatingSearch_searchBarMarginTop="3dp"
+        app:floatingSearch_searchBarMarginRight="20dp"
+        app:floatingSearch_searchHint="Search"
+        app:floatingSearch_showSearchKey="false"
+        app:floatingSearch_leftActionMode="showHamburger"
+        app:floatingSearch_close_search_on_keyboard_dismiss="true"/>
 
     <ListView android:id="@+id/main_left_drawer"
         android:layout_width="240dp"
