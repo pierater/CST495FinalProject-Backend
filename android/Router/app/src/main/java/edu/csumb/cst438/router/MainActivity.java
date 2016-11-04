@@ -2,7 +2,11 @@ package edu.csumb.cst438.router;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -13,6 +17,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private FloatingSearchView mSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +29,17 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.main_left_drawer);
+        mSearchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.menu_string_array)));
+
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        mSearchView.attachNavigationDrawerToMenuButton(mDrawerLayout);
     }
 
 
