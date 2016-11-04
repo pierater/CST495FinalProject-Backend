@@ -1,12 +1,10 @@
 package edu.csumb.cst438.router;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.SearchView;
 
 public class DebugPage extends AppCompatActivity {
 
@@ -39,5 +37,9 @@ public class DebugPage extends AppCompatActivity {
     public void openLoginActivity(View view) {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+    }
+
+    public void MartinTest(View view) {
+        Log.d("test", Boolean.toString(((Application) this.getApplication()).getDbread() == null));
     }
 }

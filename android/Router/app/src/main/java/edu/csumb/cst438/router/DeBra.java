@@ -16,9 +16,6 @@ public class DeBra {
 
     public DeBra(Application app) {
         this.app = app;
-        if(!app.readyToGo) {
-            app.instantiate();
-        }
 
         dbwrite = app.getDbwrite();
         dbread = app.getDbread();

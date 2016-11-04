@@ -116,8 +116,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     public void authenticateLogin(final String username, final String password) {
-        //connector.insertRoute("1", "route", "name", "lat", "lon", "userId");
-        Log.d("route", connector.getRouteById(1).toString());
+        //connector.insertRoute("1", "route", "name", "lat", "lon", "userId");Log.d("route", connector.getRouteById(1).toString());
     }
 
     public void createUser(final String username, final String password, final String bio, final String email) {

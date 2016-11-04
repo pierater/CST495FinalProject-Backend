@@ -3,10 +3,6 @@ package edu.csumb.cst438.router;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * Created by pico on 11/1/16.
  */
@@ -16,23 +12,25 @@ public class Application extends android.app.Application {
     public static SQLiteHelper.DeBra dbUtil;
     public static SQLiteDatabase dbwrite;
     public static SQLiteDatabase dbread;
-    public boolean readyToGo = false;
 
-    final Lock lock = new ReentrantLock();
-    final Condition notNull = lock.newCondition();
-    final Condition ready = lock.newCondition();
+
+    private Object lock = new Object();
+
 
     public Application() {
         instantiate();
     }
 
     public void instantiate() {
+        Log.d("Application", "start first");
         new Thread(new Runnable() {
             @Override
             public void run() {
                 setUpDbUtil();
             }
         }).start();
+
+        Log.d("Application", "start second");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -42,41 +40,41 @@ public class Application extends android.app.Application {
     }
 
     private void setUpDbUtil() {
-        lock.lock();
 
-        try {
-            dbUtil = SQLiteHelper.DeBra.getInstance();
-            notNull.signal();
-            Log.d("Application", "Signaled to set up read write");
+        Log.d("Application", "Signaled to set up read write");
+        dbUtil = SQLiteHelper.DeBra.getInstance();
 
-            while (dbread == null && dbwrite == null) {
-                ready.wait();
-            }
-            Log.d("Application", "dbread, dbwrite, dbUtil are ready");
-            readyToGo = true;
+        synchronized (lock) {
+
+
+            lock.notify();
         }
-        catch (InterruptedException e) {
-            Log.e("Application", e.toString());
-        }
-        lock.unlock();
+
+        Log.d("Application", "dbread, dbwrite, dbUtil are ready");
     }
 
     private void setUpReadWrite() {
-        lock.lock();
+        Log.d("Application", "0");
+        synchronized (lock) {
+            while (dbUtil == null) {
+                Log.d("Application", "1");
+                try {
+                    Log.d("Application", "2");
+                    lock.wait();
+                    Log.d("Application", "3");
+                }
+                catch (Exception e) {
+                    Log.e("Application", e.toString());
+                }
+                Log.d("Application", "4");
 
-        try {
-            while(dbUtil == null) {
-                notNull.wait();
             }
+            Log.d("Application", "Ready to instance them");
+
             dbwrite = dbUtil.getWritableDatabase();
             dbread = dbUtil.getReadableDatabase();
 
             Log.d("Application", "setUpReadWrite done");
-            ready.signal();
-
-        }
-        catch (InterruptedException e) {
-            Log.e("Application", e.toString());
         }
     }
 
