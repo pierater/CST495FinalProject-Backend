@@ -40,6 +40,18 @@ public class DebugPage extends AppCompatActivity {
     }
 
     public void MartinTest(View view) {
-        Log.d("test", Boolean.toString(((Application) this.getApplication()).getDbread() == null));
+        DeBra deBra = new DeBra(((Application) this.getApplication()).getDB());
+
+        //deBra.insertRoute("1", "route", "one", "two", "three", "four");
+
+        Route route = new Route(false, 1, "route", "lat", "lon", 2, "name");
+        //deBra.insertRoute(route);
+        deBra.deleteRoute(2);
+        Log.d("test", deBra.getAllLocalRoutes().toString());
+
+        Route route2 = new Route(false, 2, "route", "lat", "lon", 2, "name");
+        //deBra.insertRoute(route2);
+        Log.d("test", deBra.getAllLocalRoutes().toString());
+
     }
 }

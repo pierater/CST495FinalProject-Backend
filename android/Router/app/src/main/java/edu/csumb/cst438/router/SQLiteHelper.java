@@ -42,7 +42,7 @@ public class SQLiteHelper {
                 UserSettings.COLLUMN_NAME_BIO + TEXT_STYPE + COMMA_SEP +
                 UserSettings.COLLUM_NAME_PRIVACY + TEXT_STYPE + COMMA_SEP +
                 UserSettings.COLLUMN_NAME_EMAIL + TEXT_STYPE + COMMA_SEP +
-                    UserSettings.COLLUMN_NAME_USERID + TEXT_STYPE + COMMA_SEP + " )";
+                    UserSettings.COLLUMN_NAME_USERID + ")";
 
     private static final String DELETE_USER_SETTINGS =
             "DROP TABLE IF EXISTS " + UserSettings.TABLE_NAME;
@@ -55,7 +55,7 @@ public class SQLiteHelper {
                 Routes.COLLUMN_NAME_START_POINT_LAT + TEXT_STYPE + COMMA_SEP +
                 Routes.COLLUMN_NAME_START_POINT_LON + TEXT_STYPE + COMMA_SEP +
                 Routes.COLLUMN_NAME_ROUTE_NAME + TEXT_STYPE + COMMA_SEP +
-                Routes.COLLUMN_NAME_USER_ID + TEXT_STYPE + COMMA_SEP + " )";
+                Routes.COLLUMN_NAME_USER_ID + TEXT_STYPE +" )";
 
     private static final String DELETE_ROUTES =
             "DROP TABLE IF EXISTS " + Routes.TABLE_NAME;
@@ -79,24 +79,16 @@ public class SQLiteHelper {
     public static class DeBra extends SQLiteOpenHelper {
         public static final int DATABASE_VERSION = 1;
         public static final String DATABASE_NAME = "DeBra.db";
-        private static DeBra me;
 
         public DeBra(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
-            me = this;
         }
 
-        public static DeBra getInstance() {
-            return me;
-        }
-
-        public void insertRoute(String routeId, String route, String routeName, String startLat, String startLon, String userId) {
-            return;
-        }
-
+        @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_USER_SETTINGS);
             db.execSQL(CREATE_ROUTES);
+
         }
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

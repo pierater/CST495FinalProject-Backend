@@ -1,7 +1,9 @@
 package edu.csumb.cst438.router;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
 
 /**
  * Created by pico on 11/1/16.
@@ -10,14 +12,13 @@ import android.util.Log;
 public class Application extends android.app.Application {
 
     public static SQLiteHelper.DeBra dbUtil;
-    public static SQLiteDatabase dbwrite;
-    public static SQLiteDatabase dbread;
+    public static SQLiteDatabase db;
+    public static Context context;
 
 
-    private Object lock = new Object();
-
-
-    public Application() {
+    public void onCreate() {
+        super.onCreate();
+        Application.context = getApplicationContext();
         instantiate();
     }
 
@@ -29,60 +30,18 @@ public class Application extends android.app.Application {
                 setUpDbUtil();
             }
         }).start();
-
-        Log.d("Application", "start second");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                setUpReadWrite();
-            }
-        }).start();
     }
 
     private void setUpDbUtil() {
-
-        Log.d("Application", "Signaled to set up read write");
-        dbUtil = SQLiteHelper.DeBra.getInstance();
-
-        synchronized (lock) {
-
-
-            lock.notify();
-        }
-
-        Log.d("Application", "dbread, dbwrite, dbUtil are ready");
+        Log.d("Application", "setting up dbUtil");
+        this.dbUtil = new SQLiteHelper.DeBra(context);
+        Log.d("Application", "is null " + Boolean.toString(this.dbUtil == null));
+        Log.d("Application", "start get writeable");
+        this.db = dbUtil.getWritableDatabase();
+        Log.d("Application", "got writeable " + Boolean.toString(this.db != null));
     }
 
-    private void setUpReadWrite() {
-        Log.d("Application", "0");
-        synchronized (lock) {
-            while (dbUtil == null) {
-                Log.d("Application", "1");
-                try {
-                    Log.d("Application", "2");
-                    lock.wait();
-                    Log.d("Application", "3");
-                }
-                catch (Exception e) {
-                    Log.e("Application", e.toString());
-                }
-                Log.d("Application", "4");
-
-            }
-            Log.d("Application", "Ready to instance them");
-
-            dbwrite = dbUtil.getWritableDatabase();
-            dbread = dbUtil.getReadableDatabase();
-
-            Log.d("Application", "setUpReadWrite done");
-        }
-    }
-
-    public SQLiteDatabase getDbwrite() {
-        return dbwrite;
-    }
-
-    public SQLiteDatabase getDbread() {
-        return dbread;
+    public SQLiteDatabase getDB() {
+        return db;
     }
 }
