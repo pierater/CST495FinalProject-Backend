@@ -50,7 +50,7 @@ public class DebugPage extends AppCompatActivity {
     }
 
     public void MartinTest(View view) {
-        DeBra deBra = new DeBra(((Application) this.getApplication()).getDB());
+        RoutesServices deBra = new RoutesServices(((Application) this.getApplication()).getDB());
 
         //deBra.insertRoute("1", "route", "one", "two", "three", "four");
 

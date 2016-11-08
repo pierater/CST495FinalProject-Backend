@@ -10,12 +10,10 @@ import android.util.Log;
  * Created by pico on 11/4/16.
  */
 
-public class UserServices {
-
-    private SQLiteDatabase db;
+public class UserServices extends Services{
 
     public UserServices(SQLiteDatabase db) {
-        this.db = db;
+        super(db);
     }
 
     public void updateUserBio(String newBio) {
