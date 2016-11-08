@@ -12,6 +12,7 @@ test:
         - bash CIRCLE
         - mkdir -p $CIRCLE_TEST_REPORTS/reports/
         - py.test --junitxml=$CIRCLE_TEST_REPORTS/reports/test_result.xml
+        - pytest --cov=./
     post:
         - bash AWS
         - bash <(curl -s https://codecov.io/bash)
