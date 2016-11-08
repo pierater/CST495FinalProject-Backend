@@ -10,7 +10,7 @@ AWS = './src/rest/dbUtil/configAWS.ini'
 CIRCLE = './src/rest/dbUtil/config_test.ini'
 LOCAL = './src/rest/dbUtil/config.ini'
 
-dbConfig=LOCAL
+dbConfig=CIRCLE
 
 # Inserting data to Users Table
 # PARAM1: username value
