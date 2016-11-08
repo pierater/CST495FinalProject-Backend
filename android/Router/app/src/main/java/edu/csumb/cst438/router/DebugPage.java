@@ -1,12 +1,12 @@
 package edu.csumb.cst438.router;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
-import android.widget.SearchView;
 
 public class DebugPage extends AppCompatActivity {
 
@@ -14,6 +14,14 @@ public class DebugPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug_page);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_debug_page, menu);
+
+        return true;
     }
 
     public void openRecordActivity(View view) {
@@ -39,5 +47,21 @@ public class DebugPage extends AppCompatActivity {
     public void openLoginActivity(View view) {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+    }
+
+    public void MartinTest(View view) {
+        DeBra deBra = new DeBra(((Application) this.getApplication()).getDB());
+
+        //deBra.insertRoute("1", "route", "one", "two", "three", "four");
+
+        Route route = new Route(false, 1, "route", "lat", "lon", 2, "name");
+        //deBra.insertRoute(route);
+        deBra.deleteRoute(2);
+        Log.d("test", deBra.getAllLocalRoutes().toString());
+
+        Route route2 = new Route(false, 2, "route", "lat", "lon", 2, "name");
+        //deBra.insertRoute(route2);
+        Log.d("test", deBra.getAllLocalRoutes().toString());
+
     }
 }
