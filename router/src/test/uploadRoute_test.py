@@ -9,7 +9,7 @@ import json
 Author: Angel Soriano
 Description: a test to test uploadRoute
 '''
-
+#test Data to insert into route
 userID = "123"
 startingPointLat = "36.733"
 startingPointLon = "-125.666"
@@ -38,4 +38,5 @@ def test_routeUploaded():
 '''
 
 def teardown_function():
+    # delete everything inserted into the database
     dbconnect.delete_data('routes', 'userid', userID)
