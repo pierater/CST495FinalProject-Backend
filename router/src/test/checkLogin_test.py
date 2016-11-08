@@ -7,6 +7,7 @@ import codes
 '''
 Author: Martin Almaraz
 Description: A test that tests checkLogin endpoint
+Last Updated: 2016-11-07
 '''
 
 
