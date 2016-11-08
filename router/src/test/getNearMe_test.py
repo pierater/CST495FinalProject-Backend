@@ -27,15 +27,23 @@ class TestGetNearMe():
 	routeName1 = "route1"
 	routeName2 = "route2"
 
+	# demonstrates that when searching a database with multiple routes
+	# a query that has a result within the desired radius of the input coordinate
+	# will only return the desired route and none of the other possible routes.
 	def test_getNearMe(self):
 		response = json.loads(getNearMe.getNearMe(self.userLat, self.userLon, self.dist))
 		assert response[0]['idroutes'] != self.routeId2
 		assert response[0]['idroutes'] == self.routeId1
 			
+	# demonstrates that when searching a database with any amount of routes
+	# a query that has no results will not return any routes
 	def test_getNearMeNoMatch(self):
 		response = json.loads(getNearMe.getNearMe(self.startPointLatNoMatch, self.startPointLonNoMatch, self.dist))
 		assert len(response) == 0
 			
+	# demonstrates that when searching a database with multiple routes
+	# a query that has multiple results within the desired radius of the input
+	# coordinate will return multiple routes from within that radius
 	def test_getNearMeMultiMatch(self):
 		response = json.loads(getNearMe.getNearMe(self.userLat, self.userLon, 410000))
 		assert len(response) > 1
