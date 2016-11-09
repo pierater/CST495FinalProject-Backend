@@ -135,7 +135,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         //connector.insertRoute("1", "route", "name", "lat", "lon", "userId");Log.d("route", connector.getRouteById(1).toString());
     }
 
-    }
     
     private void setupVariables() {
         username_to_login = (EditText) findViewById(R.id.username_to_login);
