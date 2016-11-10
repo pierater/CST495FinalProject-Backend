@@ -49,6 +49,7 @@ public class DebugPage extends AppCompatActivity {
     }
 
     public void MartinTest(View view) {
-        LocationService loc = LocationService.getLocationManager(this.getApplicationContext());
+        LocationService loc = new LocationService(this);
+        loc.isServiceAvailable();
     }
 }

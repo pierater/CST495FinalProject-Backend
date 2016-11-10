@@ -15,6 +15,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by expertReptile on 11/3/16.
  */
@@ -49,7 +51,12 @@ public class LocationService implements LocationListener {
         return instance;
     }
 
+    public LatLng getLocation() {
+        return new LatLng(this.latitude, this.longitude);
+    }
+
     public LocationService(Context mContext) {
+        this.context = mContext;
         initLocationService(mContext);
         Log.d("GPS", "Location Service created.");
     }
@@ -85,15 +92,12 @@ public class LocationService implements LocationListener {
 
     public void initLocationService(Context mContext) {
 
-        if ( ContextCompat.checkSelfPermission( this.context, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
-
-            ActivityCompat.requestPermissions((Activity) this.context, new String[] {  android.Manifest.permission.ACCESS_COARSE_LOCATION  },
-                    LocationService.MY_PERMISSION_ACCESS_COURSE_LOCATION );
-        }
-
         if(Build.VERSION.SDK_INT >= 23 &&
            ContextCompat.checkSelfPermission(mContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
            ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions((Activity)context, new String[] {  android.Manifest.permission.ACCESS_COARSE_LOCATION  },
+                    LocationService.MY_PERMISSION_ACCESS_COURSE_LOCATION );
             Log.d("GPS", "App does not have permissions");
             return;
         }

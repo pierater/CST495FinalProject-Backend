@@ -20,6 +20,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private FloatingSearchView mSearchView;
+    private LocationService loc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         mSearchView.attachNavigationDrawerToMenuButton(mDrawerLayout);
+
+        loc = new LocationService(this);
     }
 
 
@@ -57,7 +60,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in monterey and move the camera
-        LatLng monterey = new LatLng(36.652382, -121.797501);
+        LatLng monterey = loc.getLocation();
         mMap.addMarker(new MarkerOptions().position(monterey).title("Marker in CSUMB"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterey, 16));
     }
