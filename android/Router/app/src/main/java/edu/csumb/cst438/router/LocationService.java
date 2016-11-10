@@ -2,6 +2,7 @@ package edu.csumb.cst438.router;
 
 import android.*;
 import android.Manifest;
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import java.security.Permission;
@@ -21,6 +23,7 @@ import java.security.Permission;
 
 public class LocationService implements LocationListener {
 
+    private static int MY_PERMISSION_ACCESS_COURSE_LOCATION = 1;
     //mininum distance moved until next update
     private static final long MIN_DISTANCE_CHANGE = 10; // 10 meters
 
@@ -83,6 +86,12 @@ public class LocationService implements LocationListener {
     }
 
     public void initLocationService(Context mContext) {
+
+        if ( ContextCompat.checkSelfPermission( this.context, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+
+            ActivityCompat.requestPermissions((Activity) this.context, new String[] {  android.Manifest.permission.ACCESS_COARSE_LOCATION  },
+                    LocationService.MY_PERMISSION_ACCESS_COURSE_LOCATION );
+        }
 
         if(Build.VERSION.SDK_INT >= 23 &&
            ContextCompat.checkSelfPermission(mContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
