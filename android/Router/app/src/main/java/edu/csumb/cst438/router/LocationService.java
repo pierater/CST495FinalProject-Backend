@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by expertReptile on 11/3/16.
+ * Authors: Angel Soriano, Martin Almaraz
  */
 
 public class LocationService implements LocationListener {
