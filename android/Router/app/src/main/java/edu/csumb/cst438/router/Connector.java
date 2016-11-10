@@ -34,6 +34,9 @@ public class Connector {
     static String getNearMe = "/getNearMe/";
     static ExecutorService executorService = Executors.newSingleThreadExecutor();
 
+    Object result = null;
+
+
     public Connector() {
 
         try {
