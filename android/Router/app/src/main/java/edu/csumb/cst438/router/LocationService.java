@@ -1,7 +1,8 @@
 package edu.csumb.cst438.router;
 
-import android.*;
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -9,11 +10,8 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.content.Context;
-import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import java.security.Permission;
 
 /**
  * Created by expertReptile on 11/3/16.

@@ -3,7 +3,6 @@ package edu.csumb.cst438.router;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -50,18 +49,6 @@ public class DebugPage extends AppCompatActivity {
     }
 
     public void MartinTest(View view) {
-        RoutesServices deBra = new RoutesServices(((Application) this.getApplication()).getDB());
-
-        //deBra.insertRoute("1", "route", "one", "two", "three", "four");
-
-        Route route = new Route(false, 1, "route", "lat", "lon", 2, "name");
-        //deBra.insertRoute(route);
-        deBra.deleteRoute(2);
-        Log.d("test", deBra.getAllLocalRoutes().toString());
-
-        Route route2 = new Route(false, 2, "route", "lat", "lon", 2, "name");
-        //deBra.insertRoute(route2);
-        Log.d("test", deBra.getAllLocalRoutes().toString());
-
+        LocationService loc = LocationService.getLocationManager(this.getApplicationContext());
     }
 }
