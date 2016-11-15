@@ -13,10 +13,6 @@ LOCAL = './src/rest/dbUtil/config.ini'
 dbConfig=LOCAL
 
 # Inserting data to Users Table
-# PARAM1: username value
-# PARAM2: bio value
-# PARAM3: passwd (NOT HASHED IN FUNCTION)
-# Returns new user's id
 def insert_data_users(username,bio,passwd,email):
     if( len(get_field("idusers", "users", "username", username)) > 0): return -1
     query = "INSERT INTO users(idusers,username,bio,pass,email) " \
@@ -27,10 +23,6 @@ def insert_data_users(username,bio,passwd,email):
     return userid[0]['idusers']
 
 # Inserting data to Routes Table
-# PARAM1: route value
-# PARAM2: route start point latitude
-# PARAM3: route start point longitude
-# PARAM4: userid value, user that the route belongs to
 def insert_data_routes(route,startPointLat,startPointLon,userid,routeName):
     if( len(get_field("idroutes", "routes", "route", route)) > 0): return -1
 
@@ -41,22 +33,13 @@ def insert_data_routes(route,startPointLat,startPointLon,userid,routeName):
 
     return get_field("idroutes", "routes", "route", route)
 
-
-# OPTING OUT COMMENTS TABLE FOR NOW..
-
 # Update a single field in specified table
-# PARAM1: Name of the table that will be updated
-# PARAM2: Name of field that's value will be changed
-# PARAM3: New value for field specified in (PARAM2)
-# PARAM4 & PARAM5: Condition for where statement (field, value) respectively
 def update_data(tablename, setfield, newvalue, wherefield, cond):
     query = "UPDATE %s SET %s = %s WHERE %s = %s" % (tablename, setfield, '%s', wherefield, '%s')
     args = (newvalue,cond)
     __change_data(query,args)
 
 # Deletes row from specified table
-# PARAM1: Name of table where row is deleted from
-# PARAM2 & PARAM3: Condition for where statement (field, value) respectively
 def delete_data(tablename, wherefield, condition):
     query = "DELETE FROM %s WHERE %s = %s" % (tablename, wherefield, '%s')
     args = (condition,)
@@ -78,8 +61,7 @@ def __change_data(query,args):
             print(error)
     except Error as error:
         print(error)
-################ TESTING ##################
-# USED FOR TESTING
+
 def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
 
     try:
