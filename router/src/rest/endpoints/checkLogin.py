@@ -2,7 +2,7 @@
 import json
 from flask import Blueprint, request
 import dbconnect
-from codes import SUCCESS, FAILURE
+from codes import SUCCESS, FAILURE, JSON_FAILURE
 
 '''
 Description: Rest endpoint for checking login
@@ -17,12 +17,13 @@ def checkLogin(username = None, password = None):
         username = request.json['username']
         password = request.json['password']
 
-    query = "SELECT `username`, `pass` FROM `users` WHERE `username` = %s AND `pass` = %s"
+    query = "SELECT `idusers`, `username`, `bio`, `email` FROM `users` WHERE `username` = %s AND `pass` = %s"
 
     cursor = dbconnect.__change_data(query, (username, password))
     try:
-        for key, value in (dict(cursor)).items():
-            return json.dumps(SUCCESS)
-        return json.dumps(FAILURE)
+        for key, value in (dict(cursor[0])).items():
+            return json.dumps(cursor)
+        return JSON_FAILURE
     except Exception as e:
-        return json.dumps(FAILURE)
+        print(e)
+        return JSON_FAILURE
