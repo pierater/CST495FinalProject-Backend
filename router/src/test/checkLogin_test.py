@@ -3,6 +3,7 @@ from . import preTest
 import checkLogin
 import dbconnect
 import codes
+import json
 
 '''
 Author: Martin Almaraz
@@ -13,10 +14,15 @@ Last Updated: 2016-11-07
 
 username = 'martin'
 password = 'password'
-
+bio = 'bio'
+email = 'email'
 def test_checkLogin():
     
-    assert checkLogin.checkLogin(username, password) == codes.JSON_SUCCESS
+    response = json.loads(checkLogin.checkLogin(username, password))
+    response = response[0]
+    assert response['username'] == username
+    assert response['bio'] == bio
+    assert response['email'] == email
 
 def test_checkLogin_wrong_pass():
 
@@ -27,7 +33,7 @@ def test_checkLogin_wrong_username():
     assert checkLogin.checkLogin('badUser', password) == codes.JSON_FAILURE
 
 def setup_function():
-    dbconnect.insert_data_users(username, "bio", password, "email")
+    dbconnect.insert_data_users(username, bio, password, email)
 
 def teardown_function():
     dbconnect.delete_data('users', 'username', username)
