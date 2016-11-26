@@ -2,6 +2,7 @@
 import json
 from flask import Blueprint, request
 import dbconnect
+import codes
 
 '''
 Description: Rest endpoint for processing a friend request
@@ -12,24 +13,19 @@ processRequestBlueprint = Blueprint('router', __name__, template_folder='templat
 @processRequestBlueprint.route("/processRequest/", methods=['POST'])
 # takes the Ids of the users of the request and the response
 # returns a success/failure response
-def processRequest(meId = None, youId = None, response = None):
-	isThisAProductionRun = meId is None
-	yesString = "yes"
-	noString = "no"
-	query = "INSERT INTO friends(meId, youId) VALUES(%s,%s)"
-
-	try:
-		assert (isThisAProductionRun == True)
-	except AssertionError:
-		meId = request.json['meId']
-		youId = request.json['youId']
+def processRequest(user_id = None, friend_id = None, response = None):
+	query = "INSERT INTO friend(user_id, friend_id) VALUES(%s,%s)"
+	
+	if(user_id is None):
+		user_id = request.json['user_id']
+		friend_id = request.json['friend_id']
 		response = request.json['response']
-	finally:
-		response = response.lower()
-		args = (meId, youId)
-		if(response == yesString):
-			try:
-				dbconnect.__change_data(query,args)
-				return json.dumps(codes.SUCCESS)
-			except Exception as e:
-				return json.dumps(codes.FAILURE)
+	
+	response = response.lower()
+	args = (user_id, friend_id)
+	if(response == codes.YES):
+		try:
+			dbconnect.__change_data(query,args)
+			return json.dumps(codes.SUCCESS)
+		except Exception as e:
+			return json.dumps(codes.FAILURE)
