@@ -13,24 +13,21 @@ getRoutesSharedBlueprint = Blueprint('router', __name__, template_folder='templa
 # takes a user's Id and searches for routes shared with them
 # returns a dictionary of routes
 def getRoutesShared(meId = None):
-	isThisAProductionRun = meId is None
-	
 	query = "SELECT routeId FROM shared WHERE toId = %s"
-	args = (meID)
-
-	try:
-		assert (isThisAProductionRun == True)
-	except AssertionError:
+	
+	if(meId is None):
 		meId = request.json['meId']
-	finally:
-		cursor = dbconnect.__change_data(query,args)
-		routeIds = json.dumps(cursor)
-		try:
-			query2 = "SELECT route,routeName,startPointLat,startPointLon FROM routes WHERE routeId IN ("
-			for key in routeIds:
-				query2 += routeIds[key]
-			query2 += ")"
-			cursor2 = dbconnect.__change_data(query2,None)
-			return json.dumps(cursor)
-		except Exception as e:
-			return json.dumps(codes.FAILURE)
+	
+	args = (meID)
+	
+	cursor = dbconnect.__change_data(query,args)
+	routeIds = json.dumps(cursor)
+	try:
+		query2 = "SELECT route,routeName,startPointLat,startPointLon FROM routes WHERE routeId IN ("
+		for key in routeIds:
+			query2 += routeIds[key]
+		query2 += ")"
+		cursor2 = dbconnect.__change_data(query2,None)
+		return json.dumps(cursor)
+	except Exception as e:
+		return json.dumps(codes.FAILURE)
