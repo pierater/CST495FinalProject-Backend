@@ -17,8 +17,8 @@ def getFriends(userId = None):
         userId = request.json['userId']
 
     query = '''SELECT `username`, `bio`, `userId` FROM 
-    `friends` INNER JOIN `users` ON friends.`you_id` = users.`idusers`
-    AND friends.`me_id` = %s'''
+    `friend` INNER JOIN `users` ON friend.`friend_id` = users.`idusers`
+    AND friend.`user_id` = %s'''
 
     cursor = dbconnect.__change_data(query, (userId,))
 

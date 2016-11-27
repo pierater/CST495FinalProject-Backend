@@ -17,7 +17,8 @@ def getFriendRequests(userId = None):
     if userId is None:
         userId = requests.json['userId']
 
-    query = "SELECT `username`, `bio`, `userId` FROM `requests` WHERE `userId` = %s"
+    query = "SELECT `username`, `bio`, `userId` FROM `request` WHERE `userId` = %s"
+    # once the new schema is up and landed, i'll make sure this works
     cursor = dbconnect.__change_data(query, (userId,))
 
     try:
