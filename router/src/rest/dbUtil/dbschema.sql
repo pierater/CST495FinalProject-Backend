@@ -38,6 +38,27 @@ CREATE TABLE IF NOT EXISTS router.comments (
 	timestamp TIMESTAMP, 
 	parent VARCHAR(45) NOT NULL, 
 	PRIMARY KEY (idcomments)) ENGINE = InnoDB;
+-- Table router.friends
+DROP TABLE IF EXISTS router.friend ;
+CREATE TABLE IF NOT EXISTS router.friend( 
+	user_id INT NOT NULL, 
+	friend_id INT NOT NULL, 
+	PRIMARY KEY (user_id, friend_id)) ENGINE = InnoDB;
+-- Table router.request
+DROP TABLE IF EXISTS router.request ;
+CREATE TABLE IF NOT EXISTS router.request( 
+	request_id INT NOT NULL AUTO_INCREMENT, 
+	receiver_id INT NOT NULL,
+	sender_id INT NOT NULL,
+	PRIMARY KEY (request_id)) ENGINE = InnoDB;
+-- Table router.shared
+DROP TABLE IF EXISTS router.shared;
+CREATE TABLE IF NOT EXISTS router.shared( 
+	shared_id INT NOT NULL AUTOINCREMENT,
+	receiver_id INT NOT NULL,
+	sender_id INT NOT NULL,
+	route_id INT NOT NULL,
+	PRIMARY KEY (shared_id)) ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE; 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS; 
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
