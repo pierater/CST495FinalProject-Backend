@@ -24,7 +24,7 @@ def getFriends(userId = None):
 
     try:
         friends = cursor
-        return json.dumps(frinds)
+        return json.dumps(friends)
     except Exception as e:
         print(e)
         return codes.JSON_FAILURE

@@ -18,6 +18,7 @@ def removeFriend(user_id = None, user_id = None):
 
     query = "DELETE  FROM friend WHERE user_id = %s AND friend_id = %s"
     args = (user_id, user_id)
+
     try:
         # execute query
         dbconnect.__change_date(query, args)
