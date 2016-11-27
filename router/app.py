@@ -13,6 +13,10 @@ import uploadRoute
 import createUser
 import downloadRoute
 import getNearMe
+import getFriends
+import getFriendRequests
+import removeFriend
+import addFriend
 
 application = Flask(__name__)
 application.register_blueprint(checkLogin.checkLoginBlueprint)
@@ -20,6 +24,11 @@ application.register_blueprint(createUser.createUserBlueprint)
 application.register_blueprint(uploadRoute.uploadRouteBlueprint)
 application.register_blueprint(downloadRoute.downloadRouteBlueprint)
 application.register_blueprint(getNearMe.getNearMeBlueprint)
+application.register_blueprint(getFriends.getFriendsBlueprint)
+application.register_blueprint(getFriendRequests.getFriendRequestsBlueprint)
+application.register_blueprint(removeFriend.removeFriendBlueprint)
+application.register_blueprint(addFriend.addFriendBlueprint)
+
 
 if __name__ == '__main__':
     application.run(debug=True)

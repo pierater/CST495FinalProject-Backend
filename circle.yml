@@ -5,8 +5,10 @@ general:
     build_dir: router
 dependencies:
     pre:
+        - sudo apt-get update
         - sudo apt-get install python-dev
         - sudo pip2 install awsebcli
+# in this block we can see that we run CIRCLE before testing
 test:
     override:
         - bash CIRCLE
@@ -22,6 +24,7 @@ notify:
 database:
     override:
         - mysql -u ubuntu circle_test < ./src/rest/dbUtil/dbschema_test.sql
+# here we run AWS after we finish testing and deploy so that it is configured correctly
 deployment:
     production:
         branch: master
