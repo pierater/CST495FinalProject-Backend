@@ -10,14 +10,14 @@ Description: Endpoint to remove a friend
 
 removeFriendBlueprint = Blueprint('removeFriend', __name__, template_folder='templates')
 @removeFriendBlueprint.route("/removeFriend/", methods=['POST'])
-def removeFriend(me_id = None, you_id = None):
-    if me_id is None:
+def removeFriend(user_id = None, user_id = None):
+    if user_id is None:
         payload = request.json
-        me_id = payload["me_id"]
-        you_id = payload["you_id"]
+        user_id = payload["user_id"]
+        user_id = payload["user_id"]
 
-    query = "DELETE  FROM friends WHERE me_id = %s AND you_id = %s"
-    args = (me_id, you_id)
+    query = "DELETE  FROM friend WHERE user_id = %s AND friend_id = %s"
+    args = (user_id, user_id)
     try:
         # execute query
         dbconnect.__change_date(query, args)
