@@ -10,3 +10,6 @@ FAILURE['status'] = "failure"
 JSON_SUCCESS = json.dumps(SUCCESS)
 
 JSON_FAILURE = json.dumps(FAILURE)
+
+YES = "yes"
+NO = "no"

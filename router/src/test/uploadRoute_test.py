@@ -28,14 +28,6 @@ def test_badUpload():
     # Inserting bad values into the upload route so it fails
     response = uploadRoute.uploadRoute(userID, startingPointLat, startingPointLon,None, None)
     assert (response == codes.JSON_FAILURE)
-'''
-def test_routeUploaded():
-
-    query = "SELECT * FROM 'routes' WHERE 'userid` = %s"
-    try:
-        cursor = dbconnect.__change_data(query, (userID, routeName))
-    except:
-'''
 
 def teardown_function():
     # delete everything inserted into the database

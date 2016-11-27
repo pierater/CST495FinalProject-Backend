@@ -3,6 +3,7 @@ from . import preTest
 import downloadRoute
 import dbconnect
 import json
+import codes
 
 '''
 Author: Martin Almaraz
@@ -28,8 +29,7 @@ class TestdownloadRoute_endpoints():
 		assert response['routeName'] == self.routeName
 
 	def test_downloadRoute_bad_routeid(self):
-		correctResponse = '"{status: failure}"'
-		assert downloadRoute.downloadRoute('00') == correctResponse
+		assert downloadRoute.downloadRoute('00') == codes.JSON_FAILURE
 
 	def setup_method(self):
 		try:

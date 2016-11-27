@@ -2,6 +2,7 @@
 import json
 from flask import Blueprint, request
 import dbconnect
+import codes
 
 '''
 Author: Martin Almaraz
@@ -22,4 +23,4 @@ def downloadRoute(routeId = None):
         return json.dumps(route[0])
     except Exception as e:
         print(e)
-        return json.dumps('{status: failure}')
+        return codes.JSON_FAILURE
