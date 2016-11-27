@@ -14,7 +14,6 @@ def searchFriends(username = None):
     if username is None:
         payload = request.json
         username = payload['username']
-# not done but I want to get remove and add friend up
     
     query = "SELECT * FROM users WHERE username LIKE %s"
     

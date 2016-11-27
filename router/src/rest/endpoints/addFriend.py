@@ -10,16 +10,16 @@ Description: Endpoint to add a friend
 
 addFriendBlueprint = Blueprint('addFriend', __name__, template_folder='templates')
 @addFriendBlueprint.route("/addFriend/", methods=['POST'])
-def addFriend(me_id = None, you_id = None):
+def addFriend(user_id = None, friend_id = None):
     
-    query = "INSERT %s, %s INTO friends"
+    query = "INSERT INTO friend(user_id, friend_id) VALUES(%s,%s)"
 
-    if me_id is None:
+    if user_id is None:
         payload = request.json
-        me_id = payload["me_id"]
-        you_id = payload["you_id"]
+        user_id = payload["user_id"]
+        friend_id = payload["friend_id"]
         
-    args = (me_id, you_id)
+    args = (user_id, friend_id)
 
     try:
         dbconnect.__change_date(query, args)
