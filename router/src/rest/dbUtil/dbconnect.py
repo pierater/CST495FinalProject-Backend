@@ -7,16 +7,13 @@ from mysql.connector import MySQLConnection, Error, errorcode
 from python_mysql_dbconfig import read_db_config
 
 '''
-Added these so that our SED functinos AWS, LOCAL, and CIRCLE can 
+Added these so that our SED functinos AWS, LOCAL, and CIRCLE can
 change our db to whatever is needed
 '''
 AWS = './src/rest/dbUtil/configAWS.ini'
 CIRCLE = './src/rest/dbUtil/config_test.ini'
 LOCAL = './src/rest/dbUtil/config.ini'
 
-'''
- this is the line that is changed
-'''
 dbConfig=LOCAL
 
 # Inserting data to Users Table
@@ -51,10 +48,6 @@ def delete_data(tableName, fieldNameForCondition, valueForCondition):
     __change_data(query,args)
 
 # Connects to database and processes the query
-'''
-    I was able to get rid of that horrendoous try/except messs
-    that we had before. Now it should only try ONE time
-'''
 def __change_data(query,args):
     try:
         db_config = read_db_config(dbConfig)
@@ -72,12 +65,10 @@ def __change_data(query,args):
         print(error)
 
 def get_field(fieldname, tablename,fieldnamecondition,fieldvaluecondition):
-    
     try:
         db_config = read_db_config(dbConfig)
         conn = MySQLConnection(**db_config)
         cursor = conn.cursor(dictionary=True)
-        
         query = "SELECT %s FROM %s WHERE %s = %s" % (fieldname,tablename,fieldnamecondition, '%s')
         args = (fieldvaluecondition,)
         cursor.execute(query,args)
