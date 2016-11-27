@@ -17,6 +17,9 @@ import getFriends
 import getFriendRequests
 import removeFriend
 import addFriend
+import shareRoute
+import getRoutesShared
+import processRequest
 
 application = Flask(__name__)
 application.register_blueprint(checkLogin.checkLoginBlueprint)
@@ -28,6 +31,9 @@ application.register_blueprint(getFriends.getFriendsBlueprint)
 application.register_blueprint(getFriendRequests.getFriendRequestsBlueprint)
 application.register_blueprint(removeFriend.removeFriendBlueprint)
 application.register_blueprint(addFriend.addFriendBlueprint)
+application.register_blueprint(shareRoute.shareRouteBlueprint)
+application.register_blueprint(getRoutesShared.getRoutesSharedBlueprint)
+application.register_blueprint(processRequest.processRequestBlueprint)
 
 
 if __name__ == '__main__':
