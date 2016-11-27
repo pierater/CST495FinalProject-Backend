@@ -17,7 +17,7 @@ LOCAL = './src/rest/dbUtil/config.ini'
 '''
 this is the line that is changed
 '''
-dbConfig=LOCAL
+dbConfig=AWS
 
 # Inserting data to Users Table
 # PARAM1: username value
