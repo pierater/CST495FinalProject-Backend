@@ -15,10 +15,12 @@ getFriendRequestsBlueprint = Blueprint('router', __name__, template_folder='temp
 def getFriendRequests(userId = None):
 
     if userId is None:
-        userId = requests.json['userId']
+        userId = request.json['userId']
 
-    query = "SELECT `username`, `bio`, `userId` FROM `request` WHERE `userId` = %s"
-    # once the new schema is up and landed, i'll make sure this works
+    query = '''SELECT `username`, `bio`, `idusers` FROM
+                (SELECT * FROM `users` INNER JOIN `request` on `request`.`sender_id` = `users`.`idusers`
+                WHERE `receiver_id` = %s) as t'''
+
     cursor = dbconnect.__change_data(query, (userId,))
 
     try:

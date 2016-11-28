@@ -9,7 +9,7 @@ Author: Martin Almaraz
 Description: Endpoint to download a certain route based on routId
 '''
 
-downloadRouteBlueprint = Blueprint('router', __name__, template_folder='templates')
+downloadRouteBlueprint = Blueprint('downloadRoute', __name__, template_folder='templates')
 @downloadRouteBlueprint.route("/downloadRoute/", methods=['POST'])
 def downloadRoute(routeId = None):
 
