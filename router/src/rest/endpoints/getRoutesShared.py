@@ -19,7 +19,7 @@ def getRoutesShared(sender_id = None):
 	if(sender_id is None):
 		sender_id = request.json['sender_id']
 	
-	args = (sender_id)
+	args = (sender_id,)
 	
 	cursor = dbconnect.__change_data(query,args)
 	routeIds = json.dumps(cursor)
