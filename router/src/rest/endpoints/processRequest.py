@@ -14,7 +14,8 @@ processRequestBlueprint = Blueprint('router', __name__, template_folder='templat
 # takes the Ids of the users of the request and the response
 # returns a success/failure response
 def processRequest(user_id = None, friend_id = None, response = None):
-	query = "INSERT INTO friend(user_id, friend_id) VALUES(%s,%s)"
+	insertQuery = "INSERT INTO friend(user_id, friend_id) VALUES(%s,%s)"
+	deleteqQuery = "DELETE * FROM request WHERE receiver_id LIKE %s AND sender_id LIKE %s"
 	
 	if(user_id is None):
 		user_id = request.json['user_id']
@@ -22,10 +23,18 @@ def processRequest(user_id = None, friend_id = None, response = None):
 		response = request.json['response']
 	
 	response = response.lower()
-	args = (user_id, friend_id)
+	args1 = (user_id, friend_id)
+	args2 = (friend_id, user_id)
 	if(response == codes.YES):
 		try:
-			dbconnect.__change_data(query,args)
+			dbconnect.__change_data(insertQuery,args1)
+			dbconnect.__change_data(insertQuery,args2)
 			return json.dumps(codes.SUCCESS)
 		except Exception as e:
+			return json.dumps(codes.FAILURE)
+	else if(response == codes.YES):
+		try:
+			dbconnect.__change_data(deleteqQuery,args2)
+			return json.dumps(codes.SUCCESS)
+		except:
 			return json.dumps(codes.FAILURE)
