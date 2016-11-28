@@ -16,7 +16,7 @@ getNearMeBlueprint = Blueprint('getNearMe', __name__, template_folder='templates
 def getNearMe(userLatitude = None, userLongitude = None, preferredDistance = None):
 	isThisAProductionRun = userLatitude is None or userLongitude is None
 	
-	query = "SELECT idroutes, route, ( 3959 * acos( cos( radians(" + userLatitude
+	query = "SELECT idroutes, route, startPointLat, startPointLon, routeName ( 3959 * acos( cos( radians(" + userLatitude
 	query += " ) ) * cos( radians( startPointLat ) ) * cos( radians( startPointLon ) - radians(" + userLongitude
 	query += " ) ) + sin( radians(" + userLatitude + ") ) * sin( radians( startPointLat ) ) ) ) "
 	query += "AS distance FROM routes HAVING distance < " + str(preferredDistance) + " ORDER BY distance LIMIT 0 , 20" 

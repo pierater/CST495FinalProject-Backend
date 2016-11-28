@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.4
 from flask import Blueprint, request, json
-import dbconect
+import dbconnect
 import codes
 
 '''
@@ -15,10 +15,10 @@ def searchFriends(username = None):
         payload = request.json
         username = payload['username']
     
-    query = "SELECT * FROM users WHERE username LIKE %s"
+    query = "SELECT `username`, `bio`, `idusers` FROM `users` WHERE `username` LIKE %s"
     
     try:
-        cursor = dbconect.__change_data(query, username)
+        cursor = dbconnect.__change_data(query, (username,))
         return json.dumps(cursor)
     except:
         return codes.JSON_FAILURE

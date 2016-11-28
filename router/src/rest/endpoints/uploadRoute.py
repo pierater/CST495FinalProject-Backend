@@ -9,7 +9,7 @@ Description: Rest endpoint for uploading route
 Author: Angel Soriano`
 '''
 
-uploadRouteBlueprint = Blueprint('uploader', __name__, template_folder='templates')
+uploadRouteBlueprint = Blueprint('uploadeRoute', __name__, template_folder='templates')
 @uploadRouteBlueprint.route("/uploadRoute/", methods=['POST'])
 def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None, routeName = None, path = None):
 
