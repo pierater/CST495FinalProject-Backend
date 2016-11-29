@@ -17,11 +17,11 @@ LOCAL = './src/rest/dbUtil/config.ini'
 dbConfig=LOCAL
 
 # Inserting data to Users Table
-def insert_data_users(username, bio, password, email):
+def insert_data_users(username, bio, password, email, privacy):
     if( len(get_field("idusers", "users", "username", username)) > 0): return -1
-    query = "INSERT INTO users(idusers,username,bio,pass,email) " \
-        "VALUES(NULL,%s,%s,%s,%s)"
-    args = (username, bio, password, email)
+    query = "INSERT INTO users(idusers,username,bio,pass,email,privacy) " \
+        "VALUES(NULL,%s,%s,%s,%s,%s)"
+    args = (username, bio, password, email, privacy)
     __change_data(query,args)
     userid = get_field("idusers","users","username",username)
     return userid[0]['idusers']
