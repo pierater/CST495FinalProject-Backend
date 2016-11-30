@@ -9,7 +9,7 @@ Description: Rest endpoint for getting route shared with a user
 Author: Pearce Reinsch
 '''
 
-getRoutesSharedBlueprint = Blueprint('router', __name__, template_folder='templates')
+getRoutesSharedBlueprint = Blueprint('getRoutesShared', __name__, template_folder='templates')
 @getRoutesSharedBlueprint.route("/getRoutesShared/", methods=['POST'])
 # takes a user's Id and searches for routes shared with them
 # returns a dictionary of routes

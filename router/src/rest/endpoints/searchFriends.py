@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.4
 from flask import Blueprint, request, json
-import dbconect
+import dbconnect
 import codes
 
 '''

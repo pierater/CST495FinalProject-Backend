@@ -9,7 +9,7 @@ Description: Rest endpoint for sharing routes between friends
 Author: Pearce Reinsch
 '''
 
-shareRouteBlueprint = Blueprint('router', __name__, template_folder='templates')
+shareRouteBlueprint = Blueprint('shareRoute', __name__, template_folder='templates')
 @shareRouteBlueprint.route("/shareRoute/", methods=['POST'])
 # takes a user's Id and desired Route and stores the share and route on the remote DB
 # returns a success/failed response

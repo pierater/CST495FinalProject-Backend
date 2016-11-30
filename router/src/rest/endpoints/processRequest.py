@@ -9,7 +9,7 @@ Description: Rest endpoint for processing a friend request
 Author: Pearce Reinsch
 '''
 
-processRequestBlueprint = Blueprint('router', __name__, template_folder='templates')
+processRequestBlueprint = Blueprint('processRequest', __name__, template_folder='templates')
 @processRequestBlueprint.route("/processRequest/", methods=['POST'])
 # takes the Ids of the users of the request and the response
 # returns a success/failure response
@@ -32,7 +32,7 @@ def processRequest(user_id = None, friend_id = None, response = None):
 			return json.dumps(codes.SUCCESS)
 		except Exception as e:
 			return json.dumps(codes.FAILURE)
-	else if(response == codes.YES):
+	elif(response == codes.YES):
 		try:
 			dbconnect.__change_data(deleteqQuery,args2)
 			return json.dumps(codes.SUCCESS)
