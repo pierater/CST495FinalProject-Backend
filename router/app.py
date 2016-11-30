@@ -21,6 +21,7 @@ import shareRoute
 import getRoutesShared
 import processRequest
 import searchFriends
+import updateUser
 
 application = Flask(__name__)
 application.register_blueprint(checkLogin.checkLoginBlueprint)
@@ -36,6 +37,7 @@ application.register_blueprint(shareRoute.shareRouteBlueprint)
 application.register_blueprint(getRoutesShared.getRoutesSharedBlueprint)
 application.register_blueprint(processRequest.processRequestBlueprint)
 application.register_blueprint(searchFriends.searchFriendsBlueprint)
+application.register_blueprint(updateUser.updateUserBlueprint)
 
 if __name__ == '__main__':
     application.run(debug=True)
