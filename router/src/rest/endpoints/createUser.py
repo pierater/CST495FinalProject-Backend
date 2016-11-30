@@ -17,7 +17,8 @@ def createUser(username = None, password = None, bio = None):
         password = request.json['password']
         bio = request.json['bio']
         email = request.json['email']
-    userid = dbconnect.insert_data_users(username,bio,password,email)
+        privacy = request.json['privacy']
+    userid = dbconnect.insert_data_users(username,bio,password,email,privacy)
     payload = {}
     payload['userId'] = userid
     return json.dumps(payload)

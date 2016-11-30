@@ -18,10 +18,11 @@ def removeFriend(user_id = None, friend_id = None):
 
     query = "DELETE  FROM friend WHERE user_id = %s AND friend_id = %s"
     args = (user_id, friend_id)
-
+    args2 = (friend_id, user_id)
     try:
         # execute query
         dbconnect.__change_data(query, args)
+        dbconnect.__change_data(query, args2)
         return codes.JSON_SUCCESS
 
     except:
