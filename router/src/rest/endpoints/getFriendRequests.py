@@ -15,7 +15,7 @@ getFriendRequestsBlueprint = Blueprint('getFriendRequests', __name__, template_f
 def getFriendRequests(userId = None):
 
     if userId is None:
-        userId = request.json['userId']
+        userId = request.json['user_id']
 
     query = '''SELECT `username`, `bio`, `idusers` FROM
                 (SELECT * FROM `users` INNER JOIN `request` on `request`.`sender_id` = `users`.`idusers`

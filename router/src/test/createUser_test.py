@@ -13,23 +13,24 @@ username = 'testuser'
 password = 's3cr3t'
 bio = 'this is a bio'
 email = 'email@mail.com'
+privacy = 'PRIVATE'
 
 # Tests that a user can be created.
 def test_createUser():
-    userid = dbconnect.insert_data_users(username, bio, password, email)
+    userid = dbconnect.insert_data_users(username, bio, password, email, privacy)
     assert userid is not None
 
 
 # Test if username is already taken, user can't be created
 def test_createExistingUser():
-    dbconnect.insert_data_users(username, bio, password, email)
-    userid = dbconnect.insert_data_users(username, bio, password, email)
+    dbconnect.insert_data_users(username, bio, password, email, privacy)
+    userid = dbconnect.insert_data_users(username, bio, password, email, privacy)
     assert userid == -1
 
 # Test that user can still be created with empty bio
 def test_createUserWithNoBio():
     emptyBio = ""
-    userid = dbconnect.insert_data_users(username, emptyBio, password, email)
+    userid = dbconnect.insert_data_users(username, emptyBio, password, email, privacy)
     assert userid is not None
 
 def teardown_function():
