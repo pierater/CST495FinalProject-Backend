@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS router.users(
 DROP TABLE IF EXISTS router.routes ;
 CREATE TABLE IF NOT EXISTS router.routes (
 	idroutes INT NOT NULL AUTO_INCREMENT,
-	route VARCHAR(1000) NOT NULL,
+	route MEDIUMTEXT NOT NULL,
 	startPointLat VARCHAR(10) NOT NULL,
 	startPointLon VARCHAR(10) NOT NULL,
 	userid VARCHAR(45) NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS router.shared(
 	receiver_id INT NOT NULL,
 	sender_id INT NOT NULL,
 	route_name VARCHAR(64) NOT NULL,
-	route VARCHAR(1000) NOT NULL,
+	route MEDIUMTEXT NOT NULL,
 	start_point_lat VARCHAR(10) NOT NULL,
 	start_point_lon VARCHAR(10) NOT NULL,
 	PRIMARY KEY (shared_id)) ENGINE = InnoDB;
