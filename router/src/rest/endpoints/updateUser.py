@@ -15,13 +15,12 @@ def updateUser(username = None, password = None, bio = None):
 
     if username is None:
         username = request.json['username']
-        password = request.json['password']
         bio = request.json['bio']
         email = request.json['email']
         privacy = request.json['privacy']
         userid = request.json['user_id']
-    query = "UPDATE `users` SET `pass` = %s, `username` = %s, `bio` = %s, `email` = %s, `privacy` = %s WHERE `idusers` = %s"
-    args = (password, username, bio, email, privacy, userid)
+    query = "UPDATE `users` SET `username` = %s, `bio` = %s, `email` = %s, `privacy` = %s WHERE `idusers` = %s"
+    args = (username, bio, email, privacy, userid)
 
     try:
         dbconnect.__change_data(query, args)
