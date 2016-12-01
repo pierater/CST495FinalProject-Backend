@@ -51,14 +51,17 @@ CREATE TABLE IF NOT EXISTS circle_test.comments (
 		receiver_id INT NOT NULL,
 		sender_id INT NOT NULL,
 		PRIMARY KEY (receiver_id,sender_id)) ENGINE = InnoDB;
-	-- Table router.share
-	DROP TABLE IF EXISTS circle_test.shared;
-	CREATE TABLE IF NOT EXISTS circle_test.shared(
-		shared_id INT NOT NULL AUTO_INCREMENT,
-		receiver_id INT NOT NULL,
-		sender_id INT NOT NULL,
-		route_id INT NOT NULL,
-		PRIMARY KEY (shared_id)) ENGINE = InnoDB;
+-- Table router.shared
+DROP TABLE IF EXISTS router.shared;
+CREATE TABLE IF NOT EXISTS router.shared(
+	shared_id INT NOT NULL AUTO_INCREMENT,
+	receiver_id INT NOT NULL,
+	sender_id INT NOT NULL,
+	route VARCHAR(1000) NOT NULL,
+	start_point_lat VARCHAR(10) NOT NULL,
+	start_point_lon VARCHAR(10) NOT NULL,
+	route_name VARCHAR(64) NOT NULL,
+	PRIMARY KEY (shared_id)) ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
