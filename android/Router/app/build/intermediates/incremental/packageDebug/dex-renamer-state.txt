@@ -1,7 +1,0 @@
-#Sat Nov 12 22:38:12 PST 2016
-base.0=/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_cdd581acfa6c5391814fdf1d867d5db437e308ec
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_fbd0c7442068bc0664f4f51c6e0e594e9e34ff5e/classes.dex
-base.1=/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_fbd0c7442068bc0664f4f51c6e0e594e9e34ff5e
-file.0=/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_cdd581acfa6c5391814fdf1d867d5db437e308ec/classes.dex
