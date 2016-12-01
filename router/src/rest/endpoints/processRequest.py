@@ -29,13 +29,13 @@ def processRequest(user_id = None, friend_id = None, response = None):
 		try:
 			dbconnect.__change_data(insertQuery,args1)
 			dbconnect.__change_data(insertQuery,args2)
-			dbconnect.__change_data(deleteqQuery,args1)
+			dbconnect.__change_data(deleteqQuery,args2)
 			return json.dumps(codes.SUCCESS)
 		except Exception as e:
 			return json.dumps(codes.FAILURE)
 	elif(response == codes.NO):
 		try:
-			dbconnect.__change_data(deleteqQuery,args1)
+			dbconnect.__change_data(deleteqQuery,args2)
 			return json.dumps(codes.SUCCESS)
 		except:
 			return json.dumps(codes.FAILURE)
