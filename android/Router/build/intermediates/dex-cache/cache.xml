@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_405ea5a29ca8938f29d4ce69b1c96c5374185bd0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-9.8.0_0bb84de3a983f40784ee1365594c49b79802de35/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.8.0_489a2e5e531d2e4e057c4f5ac229fd463266a9f0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.8.0_026db2de47314b543af2f5b2590f1594ed6e89b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-9.8.0_9d0d5899bde1a2ffddfcafc6667c242f36accbe4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2718360336545166bd082329d6a1d6bca2909435">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_fbd0c7442068bc0664f4f51c6e0e594e9e34ff5e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.8.0_6d736322be3fc4f7378d60218e35298445da3e3a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.8.0_58b2cb45dc282f1f2c6d0e13448af2c52cd51bd2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.bartoszlipinski/viewpropertyobjectanimator/1.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="1828dd75d357690efb2c5f4326804e2f7ad21f6c">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.bartoszlipinski-viewpropertyobjectanimator-1.2.0_0d1848952627119a11bba8eca4e8c01a836b148b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ec9104b53aee77dfcfd2fe1c4add23ff7c4df55f">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-9.8.0_80ab3d55d55f656e0675de30480509acf8988528/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="74ac7cbcf0de4a88e59612dc3a9e3f9e71acb4ca">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.8.0_be602c2aeacabd1aa99278e375f2b9646114aebb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_10c1638cd39986de9eb5459e6c19ce6e3b88b01d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c81df6bd515398ebe45089b0b16c55752a131f6a">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-9.8.0_499dbc29cbc969c345d2f1d3aca7f86f4777b2e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_fbd610bd3f7e30b31d6bba2d0b9ad0e4521d182d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.8.0_5458d7e822ba42c9364c8fa1b53ae4fbaa363c60/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.8.0_cc8e4c36e391625b63ad1177134596a7b238ef4d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-9.8.0_025d5baf8d3d5313485c4ee93b823950c0f61032/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a7a04d6b7c01e569a285fa627cf64f5b05295906">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-9.8.0_0199fee8f967d5b7c3abbbf63f0c3cd832b846d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.3.0_6e459bbd93a905ca93a13ef21e02a41ea999416e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.8.0_954f90a484774bc22312dbfe0a181270be9590e1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-9.8.0_6225300c09aaf9aeef2e8ac277b86be4eea4a62b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_e499ce6f01d860fe2b2555ffa5e6439ecf5ab043/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_e16e0096862a7887235d41034593037d8307808f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.8.0_67befe4c89a20291cf66722bcdf361af7544e7b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.8.0_127327e66367d0600ec738d81414d9ac1d9829e4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.8.0_bdfd08104f0635cf3210cb5fa37534647aca0f4d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_c33d9b9d429fc80626f65e6bd7855b376417bd89/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.github.arimorty/floatingsearchview/2.0.3/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="31c1fe8583cbb7f6a9f11bb7010a747e79712335">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.arimorty-floatingsearchview-2.0.3_845837f0f1966c84561ea10923b8a02f3624e840/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.8.0_e70f6c6a2f5d037cac9d9489cc36a956e87241a5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="16afe57c1d7f8165d107c7806ce7b0c71de87159">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-9.8.0_69fb003f72c58144c317157e759c9009fe04c96c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_c02b2efea13661d05b7685f116e1c4024660146b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.8.0_9af2a854866402c70e071e8ce15fc74b88ea6108/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.8.0_98d155b0b364674985c7fc6eaa2d100223ea4286/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-9.8.0_dc6d60a5db5dfb04a98f58bf326d04cf399d16f4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.8.0_106cdfeb6dcbbbcaad44dba8cc039007feaaac71/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.8.0_2fef3fc291fcfd6ebcadd95f5e8b1d068dbdd43e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-9.8.0_8606283be6c6dc5712127f60eb6ef20c2abbe6b4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-9.8.0_59cbe6bb86a39db3d6de843e0767c83d5a9007b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-9.8.0_bb3a089fff9364d99bf6599e513c0e8b6b3894af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.8.0_444449f872fc8343cbd8184095e81d7e64e52029/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_e5d0e96d46801407ccee5dd542560c05af53fb4d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_690644010b24cd0a2cd9706b5fd5d43a27273e54/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.8.0_172087452c86666c2fadde5de7b0cb4e8b823652/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="14d11ac2f8e4c2887b26b195409ddb74cb9436f5">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_cdd581acfa6c5391814fdf1d867d5db437e308ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.8.0_5fb82885e1d87714a80f3b260838b61c9c5cc0bc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="055eed08c9cff50cac0db69c74c4d9ff7aef3d84">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-9.8.0_f5c511c1af0fb151ec220320a03a03ffaf5a66ea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.8.0_b0215174c956f620c52333b4aa6d43bf651665ea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.8.0_250bcb0abc0f8185bbffd7b801bcecca03fe6821/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3daa7a9c9009fd386872a84c177a76979bdcafd6">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-9.8.0_80e1c1c03947422936d3c73a96c620ae3474cce5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.daimajia.swipelayout/library/1.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e84b30031d4bab89a2b5c45af4eb9213828524dd">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.daimajia.swipelayout-library-1.2.0_9ea2a1d93806e81e90dfb784a6bfcdda28619843/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9dae58326f6f6a515022468cce56dd04ec3b9fdb">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-9.8.0_6f3cb1a91b68e385af935b91ed9eef6287a27250/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.0.0_9665bcd3ef7434736f82851ab14abd09a0969977/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4438b1a7848a7c571122ba618aa1304514aabee6">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.8.0_4b65da294d52ce516b05283abdfcd0797847823e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.8.0_5d84e2fe0eee36d3ae1d9f4c2dd76633dce6ca85/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-9.8.0_ce9c08a3096a34085166fceb6fe0d5a232bc5d70/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a2537b11ae24b42172d34e2a613fc0b903c56158">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-9.8.0_0f2e8f815176b387f90e7db5eb2f3e72e568bc46/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.8.0_210fc79be08ced35624d3106d61594786dbed12b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.8.0_e5661d48e3a6da08e33352a8ba4aa8009eb3d64f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b4671be3d1288bf4e5f527cd33e42909fbe4ecc6">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-9.8.0_2816aef95dbbc979357e558ce1d01e72f2d8bdbe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.8.0_bc065b3d1493d9a8392476ecf4c88a617ed9836a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5ffe8867f51cfc726e9fb21db1e5b6962ebf25a0">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-9.8.0_68dddca528bc0fb35331873ba7568eabc03c3b75/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e56f31b23ddb067f95f01255295167db7c798612">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-9.8.0_a64ef7be35cb5d1b424597d55512ff74cc436b37/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ee5304fd374e0b4ebf6b42d4037fbfb2c5336511">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-9.8.0_3f61b581b83521128a8a70fbbe9e5ebe09c1bc63/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.8.0_9775acc5ac4b6ddf6ab899019fc9a1d2b9a68619/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.0.0_4bce4abac0fa6cc6afd4641e3b10e460bae5b1a6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
+        <dex dex="/Users/Seichan/Documents/CSITin3/Fall2016/CST438/team/Router/android/Router/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-9.8.0_dc698fe7801a4a258adc6da590a8fd251c433a9c/classes.dex" />
+    </item>
+
+</items>

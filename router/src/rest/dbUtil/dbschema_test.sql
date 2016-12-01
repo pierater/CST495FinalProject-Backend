@@ -39,21 +39,21 @@ CREATE TABLE IF NOT EXISTS circle_test.comments (
 	timestamp TIMESTAMP,
 	parent VARCHAR(45) NOT NULL,
 	PRIMARY KEY (idcomments)) ENGINE = InnoDB;
-	-- Table router.friends
+	-- Table circle_test.friends
 	DROP TABLE IF EXISTS circle_test.friend ;
 	CREATE TABLE IF NOT EXISTS circle_test.friend(
 		user_id INT NOT NULL,
 		friend_id INT NOT NULL,
 		PRIMARY KEY (user_id, friend_id)) ENGINE = InnoDB;
-	-- Table router.request
+	-- Table circle_test.request
 	DROP TABLE IF EXISTS circle_test.request ;
 	CREATE TABLE IF NOT EXISTS circle_test.request(
 		receiver_id INT NOT NULL,
 		sender_id INT NOT NULL,
 		PRIMARY KEY (receiver_id,sender_id)) ENGINE = InnoDB;
--- Table router.shared
-DROP TABLE IF EXISTS router.shared;
-CREATE TABLE IF NOT EXISTS router.shared(
+-- Table circle_test.shared
+DROP TABLE IF EXISTS circle_test.shared;
+CREATE TABLE IF NOT EXISTS circle_test.shared(
 	shared_id INT NOT NULL AUTO_INCREMENT,
 	receiver_id INT NOT NULL,
 	sender_id INT NOT NULL,
