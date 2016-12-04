@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Description: Rest endpoint for getting route shared with a user
@@ -18,11 +19,12 @@ def getRoutesShared(user_id = None):
 	
 	if(user_id is None):
 		user_id = request.json['user_id']
+		logging.info("getRoutesShared: " + str(payload))
 	
 	args = (user_id,)
 	try:
 		cursor = dbconnect.__change_data(query,args)
 		return json.dumps(cursor)
 	except Exception as e:
-		print(e)
+		logging.error("getRoutesShared: " + str(e))
 		return json.dumps(codes.FAILURE)

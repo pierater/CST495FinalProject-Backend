@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Description: Rest endpoint for processing a friend request
@@ -21,6 +22,7 @@ def processRequest(user_id = None, friend_id = None, response = None):
 		user_id = request.json['user_id']
 		friend_id = request.json['friend_id']
 		response = request.json['response']
+		logging.info("processRequest: " + str(payload))
 	
 	response = response.lower()
 	args1 = (user_id, friend_id)
@@ -32,10 +34,12 @@ def processRequest(user_id = None, friend_id = None, response = None):
 			dbconnect.__change_data(deleteqQuery,args1)
 			return json.dumps(codes.SUCCESS)
 		except Exception as e:
+			logging.error("processRequest: " + str(e))
 			return json.dumps(codes.FAILURE)
 	elif(response == codes.NO):
 		try:
 			dbconnect.__change_data(deleteqQuery,args1)
 			return json.dumps(codes.SUCCESS)
-		except:
+		except Exception as e:
+			logging.error("processRequest: " + str(e))
 			return json.dumps(codes.FAILURE)

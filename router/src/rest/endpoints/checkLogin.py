@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 from codes import SUCCESS, FAILURE, JSON_FAILURE
+import logging
 
 '''
 Description: Rest endpoint for checking login
@@ -16,6 +17,7 @@ def checkLogin(username = None, password = None):
     if username is None:
         username = request.json['username']
         password = request.json['password']
+        logging.info("checkLogin: " + str(request.json))
 
     query = "SELECT `idusers`, `username`, `bio`, `email`, `privacy` FROM `users` WHERE `username` = %s AND `pass` = %s"
 
@@ -25,5 +27,5 @@ def checkLogin(username = None, password = None):
             return json.dumps(cursor)
         return JSON_FAILURE
     except Exception as e:
-        print(e)
+        logging.error("checkLogin: " + str(e))
         return JSON_FAILURE
