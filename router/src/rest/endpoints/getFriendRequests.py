@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Author: Martin Almaraz
@@ -16,6 +17,7 @@ def getFriendRequests(userId = None):
 
     if userId is None:
         userId = request.json['user_id']
+        logging.info('getFriendRequests: ' + str(request.json))
 
     query = '''SELECT `username`, `bio`, `idusers` FROM
                 (SELECT * FROM `users` INNER JOIN `request` on `request`.`sender_id` = `users`.`idusers`
@@ -27,5 +29,5 @@ def getFriendRequests(userId = None):
         reqs = cursor
         return json.dumps(reqs)
     except Exception as e:
-        print(e)
+        logging.error('getFriendRequests: ' + str(e))
         return codes.JSON_FAILURE

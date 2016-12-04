@@ -3,6 +3,7 @@ from flask import json, Blueprint, request
 import dbconnect
 import codes
 import sys
+import logging
 
 '''
 Description: Rest endpoint for uploading route
@@ -16,8 +17,8 @@ def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None,
     if userID is None: 
         #Getting payload
         payload = request.json
-        print(payload)
 
+        logging.info('uploadRoute: ' + str(payload))
         # Getting all the values to insert into payload
         userID = payload['userId']
         startingPointLat = payload['route']['startingPoint']['lat']
@@ -33,12 +34,9 @@ def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None,
                     return json.dumps(codes.FAILURE)
                 return json.dumps(returnPayload[0])
             except TypeError as e:
-                print(e)
-                print(sys.exc_info()[0])
-                print(1)
+                logging.error('uploadRoute: ' + str(e))
                 return json.dumps(codes.FAILURE)
         else:
-            print(2)
             return json.dumps(codes.FAILURE)
     else:
         
@@ -49,10 +47,9 @@ def uploadRoute(userID = None, startingPointLat = None, startingPointLon = None,
                 if returnPayload == -1:
                     return json.dumps(codes.FAILURE)
                 return json.dumps(returnPayload[0])
-            except:
-                print(3)
+            except Exception as e:
+                logging.error('uploadRoute: ' + str(e))
                 return json.dumps(codes.FAILURE)
         else:
-            print(4)
             return json.dumps(codes.FAILURE)
 

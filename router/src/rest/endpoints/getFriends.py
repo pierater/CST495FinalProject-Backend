@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Author: Martin Almaraz
@@ -14,6 +15,7 @@ getFriendsBlueprint = Blueprint('getFriends', __name__, template_folder='templat
 def getFriends(userId = None):
 
     if userId is None:
+        logging.info('getFriends: ' + str(request.json))
         userId = request.json['userId']
 
     query = '''SELECT `username`, `bio`, `idusers` FROM
@@ -25,5 +27,5 @@ def getFriends(userId = None):
         friends = cursor
         return json.dumps(friends)
     except Exception as e:
-        print(e)
+        logging.error('getFriends: ' + str(e))
         return codes.JSON_FAILURE

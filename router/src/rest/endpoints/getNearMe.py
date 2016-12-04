@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Description: Rest endpoint for retrieving nearby routes
@@ -17,6 +18,7 @@ getNearMeBlueprint = Blueprint('getNearMe', __name__, template_folder='templates
 def getNearMe(userLatitude = None, userLongitude = None, preferredDistance = None):
     isThisAProductionRun = userLatitude is None or userLongitude is None
     if userLatitude is None or userLongitude is None:
+        logging.info('getNearMe: ' + str(request.json))
         userLatitude = request.json['userLat']
         userLongitude = request.json['userLon']
         preferredDistance = request.json['dist']
@@ -29,5 +31,6 @@ def getNearMe(userLatitude = None, userLongitude = None, preferredDistance = Non
     try:
         cursor = dbconnect.__change_data(query,preferredDistance)
         return json.dumps(cursor)
-    except:
+    except Exception as e:
+        logging.error('getNearMe: ' + str(e))
         return codes.JSON_FAILURE

@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Description: Rest endpoint for updating a user
@@ -14,6 +15,7 @@ updateUserBlueprint = Blueprint('updateUser', __name__, template_folder='templat
 def updateUser(username = None, password = None, bio = None, privacy = None, userid = None, email = None):
 
     if username is None:
+        logging.info('updateUser: ' + str(request.json))
         username = request.json['username']
         bio = request.json['bio']
         email = request.json['email']
@@ -26,5 +28,5 @@ def updateUser(username = None, password = None, bio = None, privacy = None, use
         dbconnect.__change_data(query, args)
         return codes.JSON_SUCCESS
     except Exception as e:
-        print(e)
+        logging.error('updateUser: ' + str(e))
         return codes.JSON_FAILURE

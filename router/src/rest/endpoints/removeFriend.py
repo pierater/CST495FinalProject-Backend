@@ -2,6 +2,7 @@
 from flask import Blueprint, request, json
 import dbconnect
 import codes
+import logging
 
 '''
 Author: Angel Soriano
@@ -12,6 +13,7 @@ removeFriendBlueprint = Blueprint('removeFriend', __name__, template_folder='tem
 @removeFriendBlueprint.route("/removeFriend/", methods=['POST'])
 def removeFriend(user_id = None, friend_id = None):
     if user_id is None:
+        logging.info('removeFriend: ' + str(request.json))
         payload = request.json
         user_id = payload["user_id"]
         friend_id = payload["friend_id"]
@@ -26,5 +28,5 @@ def removeFriend(user_id = None, friend_id = None):
         return codes.JSON_SUCCESS
 
     except:
-        # return non succesful
+        logging.error('removeFriend: ' + str(e))
         return codes.JSON_FAILURE

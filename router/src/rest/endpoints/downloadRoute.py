@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Author: Martin Almaraz
@@ -15,6 +16,7 @@ def downloadRoute(routeId = None):
 
     if routeId is None:
         routeId = request.json['routeId']
+        logging.info('downloadRoute: ' + str(request.json))
 
     query = "SELECT * FROM `routes` WHERE `idroutes` = %s"
     cursor = dbconnect.__change_data(query, (routeId,))
@@ -22,5 +24,5 @@ def downloadRoute(routeId = None):
         route = cursor
         return json.dumps(route[0])
     except Exception as e:
-        print(e)
+        logging.error('downloadRoute: ' + str(e))
         return codes.JSON_FAILURE

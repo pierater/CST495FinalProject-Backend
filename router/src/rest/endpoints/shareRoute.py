@@ -3,6 +3,7 @@ import json
 from flask import Blueprint, request
 import dbconnect
 import codes
+import logging
 
 '''
 Description: Rest endpoint for sharing routes between friends
@@ -24,10 +25,12 @@ def shareRoute(sender_id = None, receiver_id = None, route = None, route_id = No
 		routeName = request.json['routeName']
 		startLatitude = request.json['startLatitude']
 		startLongitude = request.json['startLongitude']
+		logging.info('shareRoute: ' + str(request.json))
 		
 	args = (receiver_id, sender_id, routeName, route, startLatitude, startLongitude)
 	try:
 		dbconnect.__change_data(query,args)
 		return json.dumps(codes.SUCCESS)
 	except Exception as e:
+		logging.error('shareRoute: ' + str(e))
 		return json.dumps(codes.FAILURE)

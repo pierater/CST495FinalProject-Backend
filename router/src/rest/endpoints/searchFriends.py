@@ -2,6 +2,7 @@
 from flask import Blueprint, request, json
 import dbconnect
 import codes
+import logging
 
 '''
 Author: Angel Soriano
@@ -12,6 +13,7 @@ searchFriendsBlueprint = Blueprint('searchFriends', __name__, template_folder='t
 @searchFriendsBlueprint.route("/searchFriends/", methods=['POST'])
 def searchFriends(username = None):
     if username is None:
+        logging.info("searchFriends: " + str(request.json))
         payload = request.json
         username = payload['username']
     username = '%' + username + '%'
@@ -21,5 +23,6 @@ def searchFriends(username = None):
     try:
         cursor = dbconnect.__change_data(query, (username,))
         return json.dumps(cursor)
-    except:
+    except Exception as e:
+        logging.error('searchFriends: ' + str(e))
         return codes.JSON_FAILURE
