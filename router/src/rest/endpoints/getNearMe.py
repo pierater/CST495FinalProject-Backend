@@ -21,7 +21,7 @@ def getNearMe(userLatitude = None, userLongitude = None, preferredDistance = Non
         userLongitude = request.json['userLon']
         preferredDistance = request.json['dist']
 
-    query = "SELECT idroutes, route, ( 3959 * acos( cos( radians(" + str(userLatitude)
+    query = "SELECT idroutes, route, startPointLon, startPointLat, routeName, ( 3959 * acos( cos( radians(" + str(userLatitude)
     query += " ) ) * cos( radians( startPointLat ) ) * cos( radians( startPointLon ) - radians(" + str(userLongitude)
     query += " ) ) + sin( radians(" + str(userLatitude) + ") ) * sin( radians( startPointLat ) ) ) ) "
     query += "AS distance FROM routes HAVING distance < " + str(preferredDistance) + " ORDER BY distance LIMIT 0 , 20" 

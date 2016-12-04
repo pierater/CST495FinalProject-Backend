@@ -14,7 +14,7 @@ shareRouteBlueprint = Blueprint('shareRoute', __name__, template_folder='templat
 # takes a user's Id and desired Route and stores the share and route on the remote DB
 # returns a success/failed response
 def shareRoute(sender_id = None, receiver_id = None, route = None, route_id = None, routeName = None, startLatitude = None, startLongitude = None):
-	query = "INSERT INTO shared(receiver_id, sender_id, route_id) VALUES(%s,%s,%s)"
+	query = "INSERT INTO shared(receiver_id, sender_id, route_name, route, start_point_lat, start_point_lon) VALUES(%s,%s,%s,%s,%s,%s)"
 
 	if(sender_id is None):
 		sender_id = request.json['sender_id']
@@ -25,7 +25,7 @@ def shareRoute(sender_id = None, receiver_id = None, route = None, route_id = No
 		startLatitude = request.json['startLatitude']
 		startLongitude = request.json['startLongitude']
 		
-	args = (receiver_id, sender_id, route_id)
+	args = (receiver_id, sender_id, routeName, route, startLatitude, startLongitude)
 	try:
 		dbconnect.__change_data(query,args)
 		return json.dumps(codes.SUCCESS)

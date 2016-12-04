@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS router.users(
 DROP TABLE IF EXISTS router.routes ;
 CREATE TABLE IF NOT EXISTS router.routes (
 	idroutes INT NOT NULL AUTO_INCREMENT,
-	route VARCHAR(1000) NOT NULL,
+	route MEDIUMTEXT NOT NULL,
 	startPointLat VARCHAR(10) NOT NULL,
 	startPointLon VARCHAR(10) NOT NULL,
 	userid VARCHAR(45) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS router.comments (
 	timestamp TIMESTAMP,
 	parent VARCHAR(45) NOT NULL,
 	PRIMARY KEY (idcomments)) ENGINE = InnoDB;
--- Table router.friends
+-- Table router.friend
 DROP TABLE IF EXISTS router.friend ;
 CREATE TABLE IF NOT EXISTS router.friend(
 	user_id INT NOT NULL,
@@ -51,13 +51,16 @@ CREATE TABLE IF NOT EXISTS router.request(
 	receiver_id INT NOT NULL,
 	sender_id INT NOT NULL,
 	PRIMARY KEY (receiver_id,sender_id)) ENGINE = InnoDB;
--- Table router.share
+-- Table router.shared
 DROP TABLE IF EXISTS router.shared;
 CREATE TABLE IF NOT EXISTS router.shared(
 	shared_id INT NOT NULL AUTO_INCREMENT,
 	receiver_id INT NOT NULL,
 	sender_id INT NOT NULL,
-	route_id INT NOT NULL,
+	route_name VARCHAR(64) NOT NULL,
+	route MEDIUMTEXT NOT NULL,
+	start_point_lat VARCHAR(10) NOT NULL,
+	start_point_lon VARCHAR(10) NOT NULL,
 	PRIMARY KEY (shared_id)) ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

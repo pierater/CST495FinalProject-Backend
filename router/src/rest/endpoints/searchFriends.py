@@ -14,6 +14,7 @@ def searchFriends(username = None):
     if username is None:
         payload = request.json
         username = payload['username']
+    username = '%' + username + '%'
     
     query = "SELECT `username`, `bio`, `idusers` FROM `users` WHERE `username` LIKE %s AND `privacy` = 'PUBLIC'"
     

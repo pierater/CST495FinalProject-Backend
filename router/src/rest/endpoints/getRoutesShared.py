@@ -13,14 +13,13 @@ getRoutesSharedBlueprint = Blueprint('getRoutesShared', __name__, template_folde
 @getRoutesSharedBlueprint.route("/getRoutesShared/", methods=['POST'])
 # takes a user's Id and searches for routes shared with them
 # returns a dictionary of routes
-def getRoutesShared(sender_id = None):
-	query = '''SELECT * FROM (SELECT * FROM `routes` INNER JOIN `shared`
-                    on `shared`.`route_id` = `routes`.`idroutes` WHERE `userid` = %s) as t'''
+def getRoutesShared(user_id = None):
+	query = "SELECT route_name, route, start_point_lat, start_point_lon FROM `shared` WHERE `receiver_id` = %s"
 	
-	if(sender_id is None):
-		sender_id = request.json['user_id']
+	if(user_id is None):
+		user_id = request.json['user_id']
 	
-	args = (sender_id,)
+	args = (user_id,)
 	try:
 		cursor = dbconnect.__change_data(query,args)
 		return json.dumps(cursor)
