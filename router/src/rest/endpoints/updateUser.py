@@ -11,7 +11,7 @@ Author: Martin Almaraz
 
 updateUserBlueprint = Blueprint('updateUser', __name__, template_folder='templates')
 @updateUserBlueprint.route("/updateUser/", methods=['POST'])
-def updateUser(username = None, password = None, bio = None):
+def updateUser(username = None, password = None, bio = None, privacy = None, userid = None, email = None):
 
     if username is None:
         username = request.json['username']
