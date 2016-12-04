@@ -10,7 +10,7 @@ Author: Laura Chavez
 
 createUserBlueprint = Blueprint('createUser', __name__, template_folder='templates')
 @createUserBlueprint.route("/createUser/", methods=['POST'])
-def createUser(username = None, password = None, bio = None):
+def createUser(username = None, password = None, bio = None, email = None, privacy = None):
 
     if username is None:
         username = request.json['username']

@@ -14,7 +14,7 @@ AWS = './src/rest/dbUtil/configAWS.ini'
 CIRCLE = './src/rest/dbUtil/config_test.ini'
 LOCAL = './src/rest/dbUtil/config.ini'
 
-dbConfig=AWS
+dbConfig=LOCAL
 
 # Inserting data to Users Table
 def insert_data_users(username, bio, password, email, privacy):
