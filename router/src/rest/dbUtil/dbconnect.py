@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.4
-#Author: Laura Chavez
+#Author: Martin Almaraz
 #Module used to connect to database
 #Note: Should load db beforehand.
 
@@ -17,23 +17,15 @@ LOCAL = './src/rest/dbUtil/config.ini'
 dbConfig=LOCAL
 
 # Inserting data to Users Table
-def insert_data_users(username, bio, password, email, privacy):
+def insert_data_users(username, password):
     if( len(get_field("idusers", "users", "username", username)) > 0): return -1
-    query = "INSERT INTO users(idusers,username,bio,pass,email,privacy) " \
-        "VALUES(NULL,%s,%s,%s,%s,%s)"
-    args = (username, bio, password, email, privacy)
+    query = "INSERT INTO users(idusers,username,pass) " \
+        "VALUES(NULL,%s,%s)"
+    args = (username, password)
     __change_data(query,args)
     userid = get_field("idusers","users","username",username)
     return userid[0]['idusers']
 
-# Inserting data to Routes Table
-def insert_data_routes(route, startPointLatitude, startPointLongitude, userid, routeName):
-    if( len(get_field("idroutes", "routes", "route", route)) > 0): return -1
-    query = "INSERT INTO routes(route,startPointLat,startPointLon,userid,routeName) " \
-        "VALUES(%s,%s,%s,%s,%s)"
-    args = (route, startPointLatitude, startPointLongitude, userid, routeName)
-    __change_data(query,args)
-    return get_field("idroutes", "routes", "route", route)
 
 # Update a single field in specified table
 def update_data(tableName, fieldName, newValue, fieldNameForCondition, valueForCondition):

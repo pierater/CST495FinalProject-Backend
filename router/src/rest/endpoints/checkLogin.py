@@ -19,7 +19,7 @@ def checkLogin(username = None, password = None):
         password = request.json['password']
         logging.info("checkLogin: " + str(request.json))
 
-    query = "SELECT `idusers`, `username`, `bio`, `email`, `privacy` FROM `users` WHERE `username` = %s AND `pass` = %s"
+    query = "SELECT `idusers`, `username`FROM `users` WHERE `username` = %s AND `pass` = %s"
 
     cursor = dbconnect.__change_data(query, (username, password))
     try:

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# sed command to changed db to CIRCLE local db
-sed -i -e 's/dbConfig=[A-Z]*/dbConfig=CIRCLE/' ./src/rest/dbUtil/dbconnect.py

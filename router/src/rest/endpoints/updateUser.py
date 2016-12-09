@@ -12,16 +12,13 @@ Author: Martin Almaraz
 
 updateUserBlueprint = Blueprint('updateUser', __name__, template_folder='templates')
 @updateUserBlueprint.route("/updateUser/", methods=['POST'])
-def updateUser(username = None, password = None, bio = None, privacy = None, userid = None, email = None):
+def updateUser(username = None, password = None, userid = None):
 
     if username is None:
         logging.info('updateUser: ' + str(request.json))
         username = request.json['username']
-        bio = request.json['bio']
-        email = request.json['email']
-        privacy = request.json['privacy']
         userid = request.json['user_id']
-    query = "UPDATE `users` SET `username` = %s, `bio` = %s, `email` = %s, `privacy` = %s WHERE `idusers` = %s"
+    query = "UPDATE `users` SET `username` = %s WHERE `idusers` = %s"
     args = (username, bio, email, privacy, userid)
 
     try:
